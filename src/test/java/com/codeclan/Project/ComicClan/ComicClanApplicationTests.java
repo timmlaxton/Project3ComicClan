@@ -2,8 +2,10 @@ package com.codeclan.Project.ComicClan;
 
 import com.codeclan.Project.ComicClan.models.Comic;
 import com.codeclan.Project.ComicClan.models.Persona;
+import com.codeclan.Project.ComicClan.models.Publisher;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
+import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class ComicClanApplicationTests {
 	@Autowired
 	PersonaRepository personaRepository;
 
+	@Autowired
+	PublisherRepository publisherRepository;
+
 
 	@Test
 	public void contextLoads() {
@@ -35,6 +40,12 @@ public class ComicClanApplicationTests {
 	public void canAddPersona(){
 		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind");
 		personaRepository.save(persona1);
+	}
+
+	@Test
+	public void canAddPublisher(){
+		Publisher publisher1 = new Publisher("Marvel");
+		publisherRepository.save(publisher1);
 	}
 
 
