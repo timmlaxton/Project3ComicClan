@@ -1,8 +1,8 @@
 package components;
 
 import com.codeclan.Project.ComicClan.models.Comic;
-import com.codeclan.Project.ComicClan.models.Persona;
-import com.codeclan.Project.ComicClan.models.Publisher;
+//import com.codeclan.Project.ComicClan.models.Persona;
+//import com.codeclan.Project.ComicClan.models.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -15,11 +15,11 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     ComicRepository comicRepository;
 
-    @Autowired
-    CharacterRepository characterRepository;
-
-    @Autowired
-    PublisherRepository publisherRepository;
+//    @Autowired
+//    CharacterRepository characterRepository;
+//
+//    @Autowired
+//    PublisherRepository publisherRepository;
 
 
     public DataLoader(){
@@ -28,10 +28,10 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) throws Exception{
 
-        Publisher publisher1 = new Publisher("Marvel");
-        publisherRepository.save(publisher1)
+//        Publisher publisher1 = new Publisher("Marvel");
+//        publisherRepository.save(publisher1)
 
-        Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
+        Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", "Superhero");
         comicRepository.save(comic1);
     }
 }

@@ -24,10 +24,11 @@ public class Comic implements Serializable {
     @Column(name = "letter")
     private String letterer;
 
-    @JsonIgnoreProperties("comics")
-    @ManyToMany
-    @JoinColumn(name = "publisher_id", nullable = false)
-    private Publisher publisher;
+//    @JsonIgnoreProperties("comics")
+//    @ManyToMany
+//    @JoinColumn(name = "publisher_id", nullable = false)
+//    @Column(name="publisher")
+////    private Publisher publisher;
 
     @Column(name = "genre")
     private String genre;
@@ -36,14 +37,15 @@ public class Comic implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @JsonIgnoreProperties("comics")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "persona_id", nullable = false, updatable = false)}
-    )
-    private ArrayList<Persona> personas;
+//    @JsonIgnoreProperties("comics")
+//    @ManyToMany
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    @JoinTable(
+//            joinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)},
+//            inverseJoinColumns = {@JoinColumn(name = "persona_id", nullable = false, updatable = false)}
+//    )
+//    @Column(name="personas")
+////    private ArrayList<Persona> personas;
 
     @Column(name = "reviews")
     private ArrayList<Review> reviews;
@@ -53,14 +55,14 @@ public class Comic implements Serializable {
 
 
 
-    public Comic(String writer, String artist, String colourer, String letterer, Publisher publisher, String genre) {
+    public Comic(String writer, String artist, String colourer, String letterer, String genre) {
         this.writer = writer;
         this.artist = artist;
         this.colourer = colourer;
         this.letterer = letterer;
-        this.publisher = publisher;
+//        this.publisher = publisher;
         this.genre = genre;
-        this.personas = new ArrayList<Persona>();
+////        this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
         this.rating = rating;
     }
@@ -108,13 +110,13 @@ public class Comic implements Serializable {
         this.letterer = letterer;
     }
 
-    public Publisher getPublisher() {
-        return publisher;
-    }
+//    public Publisher getPublisher() {
+//        return publisher;
+//    }
 
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
+//    public void setPublisher(Publisher publisher) {
+//        this.publisher = publisher;
+//    }
 
     public String getGenre() {
         return genre;
@@ -124,13 +126,13 @@ public class Comic implements Serializable {
         this.genre = genre;
     }
 
-    public ArrayList<Persona> getPersonas() {
-        return personas;
-    }
+//    public ArrayList<Persona> getPersonas() {
+//        return personas;
+//    }
 
-    public void setPersonas(ArrayList<Persona> personas) {
-        this.personas = personas;
-    }
+//    public void setPersonas(ArrayList<Persona> personas) {
+//        this.personas = personas;
+//    }
 
     public ArrayList<Review> getReviews() {
         return reviews;
@@ -148,9 +150,9 @@ public class Comic implements Serializable {
         this.rating = rating;
     }
 
-    public void addPersona(Persona persona) {
-        this.personas.add(persona);
-    }
+//    public void addPersona(Persona persona) {
+//        this.personas.add(persona);
+//    }
 
     public void addReviews(Review review){
         this.reviews.add(review);
