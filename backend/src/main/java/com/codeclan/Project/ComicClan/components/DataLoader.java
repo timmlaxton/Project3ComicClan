@@ -37,5 +37,9 @@ public class DataLoader implements ApplicationRunner {
         comicRepository.save(comic1);
         Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Comic");
         personaRepository.save(persona1);
+
+        // DID THIS WORK?
     }
+
+
 }
