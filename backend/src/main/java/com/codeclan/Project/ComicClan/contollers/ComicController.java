@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 
 @RestController
-@RequestMapping("/comics")
+@RequestMapping("api/comics")
 public class ComicController {
     @Autowired
     ComicRepository comicRepository;
