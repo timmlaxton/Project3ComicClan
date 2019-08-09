@@ -14,7 +14,7 @@ public class Publisher {
     @JsonIgnoreProperties("comics")
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
-    private ArrayList<models.Comic> comics;
+    private ArrayList<Comic> comics;
 
     @Column(name = "logo")
     private String logo;
@@ -25,7 +25,7 @@ public class Publisher {
 
     public Publisher(String name) {
         this.name = name;
-        this.comics = new ArrayList<models.Comic>();
+        this.comics = new ArrayList<Comic>();
         this.logo = logo;
 
     }
@@ -57,14 +57,14 @@ public class Publisher {
         this.name = name;
     }
 
-    public ArrayList<models.Comic> getComics() {
+    public ArrayList<Comic> getComics() {
         return comics;
     }
 
-    public void setComics(ArrayList<models.Comic> comics) {
+    public void setComics(ArrayList<Comic> comics) {
         this.comics = comics;
     }
-    public void addComic(models.Comic comic){
+    public void addComic(Comic comic){
         this.comics.add(comic);
     }
 }

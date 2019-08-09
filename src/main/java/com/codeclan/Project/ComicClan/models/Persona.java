@@ -33,7 +33,7 @@ public class Persona implements Serializable {
             joinColumns = {@JoinColumn(name = "persona_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)}
     )
-    private ArrayList<models.Comic> comics;
+    private ArrayList<Comic> comics;
 
     public Persona(String name, String alias, String superPower, String firstAppearance) {
         this.name = name;
@@ -87,7 +87,7 @@ public class Persona implements Serializable {
         this.firstAppearance = firstAppearance;
     }
 
-    public void addComic(models.Comic comic){
+    public void addComic(Comic comic){
         this.comics.add(comic);
     }
 

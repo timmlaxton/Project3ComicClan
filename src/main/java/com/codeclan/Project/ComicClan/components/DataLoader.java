@@ -15,11 +15,11 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     ComicRepository comicRepository;
 
-//    @Autowired
-//    CharacterRepository characterRepository;
-//
-//    @Autowired
-//    PublisherRepository publisherRepository;
+    @Autowired
+    CharacterRepository characterRepository;
+
+    @Autowired
+    PublisherRepository publisherRepository;
 
 
     public DataLoader(){
@@ -29,6 +29,7 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception{
 
         Publisher publisher1 = new Publisher("Marvel");
+        publisherRepository.save(publisher1)
 
         Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
         comicRepository.save(comic1);

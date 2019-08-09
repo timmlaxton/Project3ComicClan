@@ -1,6 +1,6 @@
 package com.codeclan.Project.ComicClan.repositories;
 
-import models.Comic;
+import com.codeclan.Project.ComicClan.models.Comic;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
