@@ -1,15 +1,17 @@
 package com.codeclan.Project.ComicClan.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="personas")
-public class Persona implements Serializable {
+public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,21 +28,23 @@ public class Persona implements Serializable {
 
     @Column(name="first_Appearance")
     private String firstAppearance;
-//    @JsonIgnoreProperties("personas")
-//    @ManyToMany
-//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-//    @JoinTable(
-//            joinColumns = {@JoinColumn(name = "persona_id", nullable = false, updatable = false)},
-//            inverseJoinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)}
-//    )
-//    private ArrayList<Comic> comics;
 
-    public Persona(String name, String alias, String superPower) {
+    @JsonIgnore
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "comics_personas",
+            joinColumns = {@JoinColumn(name = "persona_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)}
+    )
+    private List<Comic> comics;
+
+    public Persona(String name, String alias, String superPower, String firstAppearance) {
         this.name = name;
         this.alias = alias;
         this.superPower = superPower;
-//        this.firstAppearance = firstAppearance;
-//        this.comics = new ArrayList<Comic>();
+        this.firstAppearance = firstAppearance;
+        this.comics = new ArrayList<Comic>();
     }
 
     public Persona(){
@@ -87,11 +91,17 @@ public class Persona implements Serializable {
         this.firstAppearance = firstAppearance;
     }
 
-//    public void addComic(Comic comic){
-//        this.comics.add(comic);
-//    }
+    public void addComic(Comic comic){
+        this.comics.add(comic);
+    }
 
+    public List<Comic> getComics() {
+        return comics;
+    }
 
+    public void setComics(List<Comic> comics) {
+        this.comics = comics;
+    }
 }
 
 

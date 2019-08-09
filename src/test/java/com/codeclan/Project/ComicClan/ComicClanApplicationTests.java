@@ -26,28 +26,39 @@ public class ComicClanApplicationTests {
 	PublisherRepository publisherRepository;
 
 
-	@Test
-	public void contextLoads() {
-	}
+//	@Test
+//	public void contextLoads() {
+//	}
+
+//	@Test
+//	public void canAddComic(){
+//		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", "Superhero");
+//		comicRepository.save(comic1);
+//	}
+
+//	@Test
+//	public void canAddPersona(){
+//		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind");
+//		personaRepository.save(persona1);
+//	}
+
+//	@Test
+//	public void canAddPublisher(){
+//		Publisher publisher1 = new Publisher("Marvel");
+//		publisherRepository.save(publisher1);
+//	}
 
 	@Test
-	public void canAddComic(){
-		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", "Superhero");
+	public void createComicAndCharacter(){
+		Publisher publisher1 = new Publisher("Marvel");
+		publisherRepository.save(publisher1);
+		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
 		comicRepository.save(comic1);
-	}
-
-	@Test
-	public void canAddPersona(){
-		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind");
+		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Comic");
 		personaRepository.save(persona1);
 	}
 
-	@Test
-	public void canAddPublisher(){
-		Publisher publisher1 = new Publisher("Marvel");
-		publisherRepository.save(publisher1);
 	}
 
 
 
-}

@@ -31,7 +31,7 @@ public class DataLoader implements ApplicationRunner {
 //        Publisher publisher1 = new Publisher("Marvel");
 //        publisherRepository.save(publisher1)
 
-        Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", "Superhero");
-        comicRepository.save(comic1);
+//        Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", "Superhero");
+//        comicRepository.save(comic1);
     }
 }
