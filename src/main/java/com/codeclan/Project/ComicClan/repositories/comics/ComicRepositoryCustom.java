@@ -1,4 +1,4 @@
-package com.codeclan.Project.ComicClan.repositories;
+package com.codeclan.Project.ComicClan.repositories.comics;
 
 import com.codeclan.Project.ComicClan.models.Comic;
 
