@@ -1,15 +1,15 @@
 package com.codeclan.Project.ComicClan.contollers;
 
-
+import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 
 @RestController
-@RequestMapping("/comics")
-public class ComicController {
+@RequestMapping("/publishers")
+public class PublisherController {
+
     @Autowired
-    ComicRepository comicRepository;
+    PublisherRepository publisherRepository;
 
 }
