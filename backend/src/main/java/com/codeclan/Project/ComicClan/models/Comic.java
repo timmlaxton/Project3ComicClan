@@ -29,10 +29,10 @@ public class Comic implements Serializable {
     @Column(name = "genre")
     private String genre;
 
-    @Coloumn(name = "title")
+    @Column(name = "title")
     private String title;
 
-    @Coloumn(name = "image")
+    @Column(name = "image")
     private String image;
 
     @Id
@@ -63,7 +63,7 @@ public class Comic implements Serializable {
 
 
     public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
-        this.title = title:
+        this.title = title;
         this.writer = writer;
         this.artist = artist;
         this.colourer = colourer;
@@ -73,7 +73,7 @@ public class Comic implements Serializable {
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
         this.rating = rating;
-        this.image = image
+        this.image = image;
     }
 
     public Comic() {
