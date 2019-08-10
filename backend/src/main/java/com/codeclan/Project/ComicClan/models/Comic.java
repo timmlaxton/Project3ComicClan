@@ -48,15 +48,6 @@ public class Comic implements Serializable {
     private List<Persona> personas;
 
     @JsonIgnoreProperties("comics")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)}
-    )
-    private List<User> users;
-
-    @JsonIgnore
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @OneToMany(mappedBy = "comic", fetch = FetchType.LAZY)
     private List<Review> reviews;
@@ -74,7 +65,6 @@ public class Comic implements Serializable {
         this.genre = genre;
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
-        this.users = new ArrayList<User>();
         this.rating = rating;
     }
 
@@ -165,26 +155,9 @@ public class Comic implements Serializable {
         this.personas = personas;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public int getUserAmount(){
-        return this.users.size();
-    }
-
     public void addPersona(Persona persona) {
         this.personas.add(persona);
     }
-
-    public void addUser(User user){
-        this.users.add(user);
-    }
-
 
     public void addReviews(Review review){
         this.reviews.add(review);

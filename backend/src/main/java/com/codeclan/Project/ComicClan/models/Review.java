@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
-public class Review implements Serializable {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Review implements Serializable {
     @Column(name = "rating")
     private int rating;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("reviews")
     @ManyToOne
     @JoinColumn(name = "comic_id", nullable = false)
     private Comic comic;

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,15 +23,8 @@ public class User implements Serializable {
     @Column(name = "alias")
     private String alias;
 
-    @JsonIgnoreProperties("users")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "comics_reviews",
-            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)}
-    )
-    private List<Comic> comics;
+    @Column(name = "comics")
+    private ArrayList<Comic> comics;
 
     @JsonIgnoreProperties("users")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -78,7 +71,7 @@ public class User implements Serializable {
         return this.comics;
     }
 
-    public void setComics(List<Comic> comics) {
+    public void setComics(ArrayList<Comic> comics) {
         this.comics = comics;
     }
 

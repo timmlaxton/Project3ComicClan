@@ -12,6 +12,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
@@ -48,8 +51,6 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user1);
         user1.addComic(comic1);
         userRepository.save(user1);
-        comic1.addUser(user1);
-        comicRepository.save(comic1);
         Date date1 = new Date(2019, 8, 10, 10, 40);
         Review review1 = new Review(date1, 3, comic1, user1);
         reviewRepository.save(review1);
