@@ -11,6 +11,9 @@ const NavBar = (props) => {
           <li className="navLink">
             <Link to="/comics">Comics</Link>
           </li>
+          <li className="navLink">
+            <Link to="characters">Characters</Link>
+          </li>
         </ul>
 
     </header>

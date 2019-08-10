@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
-import ComicList from '../components/comics/ComicList'
+import ComicList from '../components/comics/ComicList';
+import PersonaList from '../components/personas/PersonaList';
 import Request from '../helpers/request';
 
 
@@ -52,6 +53,11 @@ class MainContainer extends Component {
             {/* Get all comics */}
             <Route exact path="/comics" render={(props) => {
               return <ComicList comics={this.state.comics}/>
+            }} />
+
+            {/* Get all characters */}
+            <Route exact path="/characters" render={(props) => {
+              return <PersonaList personas={this.state.personas}/>
             }} />
 
           </Switch>
