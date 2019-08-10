@@ -69,7 +69,7 @@ public class Comic implements Serializable {
 
 
     public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
-        this.title = title:
+        this.title = title;
         this.writer = writer;
         this.artist = artist;
         this.colourer = colourer;
@@ -80,7 +80,7 @@ public class Comic implements Serializable {
         this.reviews = new ArrayList<Review>();
         this.users = new ArrayList<User>();
         this.rating = rating;
-        this.image = image
+        this.image = image;
     }
 
     public Comic() {
