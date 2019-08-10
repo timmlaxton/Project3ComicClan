@@ -1,18 +1,18 @@
 package com.codeclan.Project.ComicClan.components;
 
 
-import com.codeclan.Project.ComicClan.models.Comic;
-import com.codeclan.Project.ComicClan.models.Persona;
-import com.codeclan.Project.ComicClan.models.Publisher;
-import com.codeclan.Project.ComicClan.models.User;
+import com.codeclan.Project.ComicClan.models.*;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
 import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
+import com.codeclan.Project.ComicClan.repositories.reviews.ReviewRepository;
 import com.codeclan.Project.ComicClan.repositories.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
+
+import java.util.Date;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -29,6 +29,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ReviewRepository reviewRepository;
 
     public DataLoader(){
 
@@ -48,6 +50,9 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user1);
         comic1.addUser(user1);
         comicRepository.save(comic1);
+        Date date1 = new Date(2019, 8, 10, 10, 40);
+        Review review1 = new Review(date1, 3, comic1, user1);
+        reviewRepository.save(review1);
     }
 
 

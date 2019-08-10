@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 
+import static org.springframework.test.util.AssertionErrors.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ComicClanApplicationTests {
@@ -82,6 +84,7 @@ public class ComicClanApplicationTests {
 		Date date = new Date(2019, 05, 19, 06, 22);
 		Review review1 = new Review(date, 4, comic1, user1);
 		reviewRepository.save(review1);
+
 	}
 
 }

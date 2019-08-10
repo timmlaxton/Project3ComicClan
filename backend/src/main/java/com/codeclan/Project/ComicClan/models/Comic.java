@@ -1,6 +1,7 @@
 package com.codeclan.Project.ComicClan.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -55,8 +56,10 @@ public class Comic implements Serializable {
     )
     private List<User> users;
 
-    @Column(name = "reviews")
-    private ArrayList<Review> reviews;
+    @JsonIgnore
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @OneToMany(mappedBy = "comic", fetch = FetchType.LAZY)
+    private List<Review> reviews;
 
     @Column(name = "ratings")
     private Double rating;
@@ -142,7 +145,7 @@ public class Comic implements Serializable {
         this.personas = personas;
     }
 
-    public ArrayList<Review> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
@@ -187,6 +190,9 @@ public class Comic implements Serializable {
         this.reviews.add(review);
     }
 
+    public int getReviewsAmount() {
+        return this.reviews.size();
+    }
 }
 
 

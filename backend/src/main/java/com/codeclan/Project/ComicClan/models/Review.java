@@ -1,5 +1,6 @@
 package com.codeclan.Project.ComicClan.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -20,7 +21,7 @@ public class Review implements Serializable {
     @Column(name = "rating")
     private int rating;
 
-    @JsonIgnoreProperties("reviews")
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "comic_id", nullable = false)
     private Comic comic;
@@ -34,7 +35,9 @@ public class Review implements Serializable {
         this.date = date;
         this.rating = rating;
         this.comic = comic;
+        comic.addReviews(this);
         this.user = user;
+        user.addReviews(this);
     }
 
     public Review(){}
