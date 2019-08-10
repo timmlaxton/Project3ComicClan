@@ -1,6 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
+#root {
+  margin-top: 100px;
+  padding: 20px;
 }
 
 .component {
@@ -10,6 +10,10 @@
   width: 300px;
   border: 1px solid black;
   background-color: yellow;
+}
+
+ul.component-list {
+  list-style: none;
 }
 
 header {
@@ -42,12 +46,17 @@ header li {
 
 body {
     background-color: green;
+    height: 100vh;
 }
 
 .login {
   color: lightblue;
-  margin: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+a {
+  color: black;
 }
