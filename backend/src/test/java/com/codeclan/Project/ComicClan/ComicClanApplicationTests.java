@@ -30,6 +30,9 @@ public class ComicClanApplicationTests {
 	@Autowired
 	UserRepository userRepository;
 
+	@Autowired
+	ReviewRepository reviewRepository;
+
 //	@Test
 //	public void contextLoads() {
 //	}
@@ -66,6 +69,16 @@ public class ComicClanApplicationTests {
 	public void canAddUser(){
 		 User user1 = new User("Jordan", "Just Jordan");
 		 userRepository.save(user1);
+	}
+
+	@Test
+	public void canAddReview(){
+		User user1 = new User("Jordan", "Just Jordan");
+		userRepository.save(user1);
+		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
+		comicRepository.save(comic1);
+		Review review1 = new Review(user1, comic1, 4);
+		reviewRepository.save(review1);
 	}
 
 	}
