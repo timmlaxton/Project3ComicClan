@@ -59,11 +59,11 @@ public class ComicClanApplicationTests {
 
 	@Test
 	public void createComicAndCharacter(){
-		Publisher publisher1 = new Publisher("Marvel");
+		Publisher publisher1 = new Publisher("Marvel", "");
 		publisherRepository.save(publisher1);
-		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
+		Comic comic1 = new Comic("Spiderman", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "");
 		comicRepository.save(comic1);
-		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Comic");
+		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Daredevil", "");
 		personaRepository.save(persona1);
 	}
 
@@ -75,11 +75,11 @@ public class ComicClanApplicationTests {
 
 	@Test
 	public void canAddReview(){
-		Publisher publisher1 = new Publisher("Marvel");
+		Publisher publisher1 = new Publisher("Marvel", "");
 		publisherRepository.save(publisher1);
 		User user1 = new User("Jordan", "Just Jordan");
 		userRepository.save(user1);
-		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
+		Comic comic1 = new Comic("Spiderman", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero" , "");
 		comicRepository.save(comic1);
 		Date date = new Date(2019, 05, 19, 06, 22);
 		Review review1 = new Review(date, 4, comic1, user1);

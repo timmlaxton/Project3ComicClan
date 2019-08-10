@@ -62,6 +62,7 @@ public class Comic implements Serializable {
     private Double rating;
 
 
+
     public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
         this.title = title;
         this.writer = writer;
