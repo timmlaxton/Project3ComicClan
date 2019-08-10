@@ -1,6 +1,7 @@
 package com.codeclan.Project.ComicClan.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -28,10 +29,10 @@ public class Comic implements Serializable {
     @Column(name = "genre")
     private String genre;
 
-    @Coloumn(name = "title")
+    @Column(name = "title")
     private String title;
 
-    @Coloumn(name = "image")
+    @Column(name = "image")
     private String image;
 
     @Id
@@ -53,19 +54,13 @@ public class Comic implements Serializable {
     private List<Persona> personas;
 
     @JsonIgnoreProperties("comics")
-    @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            joinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)}
-    )
-    private List<User> users;
-
-    @Column(name = "reviews")
-    private ArrayList<Review> reviews;
+    @OneToMany(mappedBy = "comic", fetch = FetchType.LAZY)
+    private List<Review> reviews;
 
     @Column(name = "ratings")
     private Double rating;
+
 
 
     public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
@@ -78,7 +73,6 @@ public class Comic implements Serializable {
         this.genre = genre;
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
-        this.users = new ArrayList<User>();
         this.rating = rating;
         this.image = image;
     }
@@ -166,7 +160,7 @@ public class Comic implements Serializable {
         this.personas = personas;
     }
 
-    public ArrayList<Review> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
@@ -186,29 +180,15 @@ public class Comic implements Serializable {
         this.personas = personas;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public int getUserAmount(){
-        return this.users.size();
-    }
-
     public void addPersona(Persona persona) {
         this.personas.add(persona);
     }
-
-    public void addUser(User user){
-        this.users.add(user);
-    }
-
 
     public void addReviews(Review review){
         this.reviews.add(review);
     }
 
+    public int getReviewsAmount() {
+        return this.reviews.size();
+    }
 }

@@ -29,7 +29,7 @@ public class Persona {
     @Column(name="first_Appearance")
     private String firstAppearance;
 
-    @Coloumn(name = "image")
+    @Column(name = "image")
     private String image;
 
     @JsonIgnoreProperties("comics")

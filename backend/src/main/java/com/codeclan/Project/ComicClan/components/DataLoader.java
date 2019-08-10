@@ -1,18 +1,18 @@
 package com.codeclan.Project.ComicClan.components;
 
 
-import com.codeclan.Project.ComicClan.models.Comic;
-import com.codeclan.Project.ComicClan.models.Persona;
-import com.codeclan.Project.ComicClan.models.Publisher;
-import com.codeclan.Project.ComicClan.models.User;
+import com.codeclan.Project.ComicClan.models.*;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
 import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
+import com.codeclan.Project.ComicClan.repositories.reviews.ReviewRepository;
 import com.codeclan.Project.ComicClan.repositories.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
+
+import java.util.Date;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -29,14 +29,16 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ReviewRepository reviewRepository;
 
-    public DataLoader(){
+    public DataLoader() {
 
     }
 
-    public void run(ApplicationArguments args) throws Exception{
+    public void run(ApplicationArguments args) throws Exception {
 
-        Publisher publisher1 = new Publisher("Marvel", "../Images/Publisher/Marvel Logo.jpg");
+        Publisher publisher1 = new Publisher("Marvel", "../Images/Publisher/Marvel.jpg");
         publisherRepository.save(publisher1);
 
         Publisher publisher2 = new Publisher("DC", "../Images/Publisher/DC Logo.jpg");
@@ -53,31 +55,29 @@ public class DataLoader implements ApplicationRunner {
 
         Publisher publisher6 = new Publisher("Humanoids", "../Images/Publisher/Humanoids Logo.jpg");
         publisherRepository.save(publisher6);
-
-        Publisher publisher7 = new Publisher("Boom");
+        
+        Publisher publisher7 = new Publisher("Boom", "../Images/Publisher/Boom Logo.jpg");
         publisherRepository.save(publisher7);
 
-        Publisher publisher8 = new Publisher("IDW");
+        Publisher publisher8 = new Publisher("IDW", "../Images/Publisher/IDW Logo.jpg");
         publisherRepository.save(publisher8);
 
-        Publisher publisher9 = new Publisher("Valiant");
+        Publisher publisher9 = new Publisher("Valiant", "../Images/Publisher/Valiant Logo.jpg");
         publisherRepository.save(publisher9);
 
-        Publisher publisher10 = new Publisher("Fantagraphics");
+        Publisher publisher10 = new Publisher("Fantagraphics", "../Images/Publisher/Fantagraphics Logo.jpg");
         publisherRepository.save(publisher10);
 
-        Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "../Images/Comics/X-men.jpg");
+        Comic comic1 = new Comic("", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "../Images/Comics/X-men.jpg");
         comicRepository.save(comic1);
-<<<<<<< HEAD
+
         Persona persona1 = new Persona("Cyclops", "Scott summers", "Lazer Beams", "Comic", "../Images/Persona/Scott Summers.jpg");
         personaRepository.save(persona1);
         User user1 = new User("Tim", "Comic Dude");
         userRepository.save(user1);
         user1.addComic(comic1);
         userRepository.save(user1);
-        comic1.addUser(user1);
-        comicRepository.save(comic1);
-=======
+
 
         Comic comic2 = new Comic("Hard Boiled", "Frank Miller", "Geof Darrow", "Claude Legris", "John Workman", publisher4, "Sci-fi", "../Images/Comics/HardBoiled.jpg" );
         comicRepository.save(comic2);
@@ -121,29 +121,38 @@ public class DataLoader implements ApplicationRunner {
         Comic comic15 = new Comic("The Immortal Hulk", "Al Ewing", "Joe Bennett", "Paul Mounts", "Cory Petit", publisher1, "Superhero", "../Images/Comics/Immortal Hulk.jpg");
         comicRepository.save(comic15);
 
-        Comic comic15 = new Comic("Bone Parish", "Cullen Bunn", "Alex Guimaraes", "Rod Reis", "Ed Dukeshire", publisher7, "Horror", "../Images/Comics/Bone Parish.jpg");
-        comicRepository.save(comic15);
-
-        Comic comic16 = new Comic("Usagi Yojimbo", "Stan Sakai", "Stan Sakai", "Tom Luth", "Stan Sakai", publisher8, "Fantasy", "../Images/Comics/Usagi.jpg");
+        Comic comic16 = new Comic("Bone Parish", "Cullen Bunn", "Alex Guimaraes", "Rod Reis", "Ed Dukeshire", publisher7, "Horror", "../Images/Comics/Bone Parish.jpg");
         comicRepository.save(comic16);
 
-        Comic comic17 = new Comic("Locke and Key", "Joe Hill", "Gabriel Rodriguez", "Jay Fotos", "Robbie Robbins", publisher9, "Fantasy", "../Images/Comics/Locke.jpg" );
+        Comic comic17 = new Comic("Usagi Yojimbo", "Stan Sakai", "Stan Sakai", "Tom Luth", "Stan Sakai", publisher8, "Fantasy", "../Images/Comics/Usagi.jpg");
         comicRepository.save(comic17);
 
-        Comic comic18 = new Comic("Love and Rockets", "Jaimie Hernandez", "Gilbert Hernandez", "Mario Hernandez", "Jaimie Hernandez", publisher10, "Alternative", "../Images/Comics/Love and rockets.jpg");
+        Comic comic18 = new Comic("Locke and Key", "Joe Hill", "Gabriel Rodriguez", "Jay Fotos", "Robbie Robbins", publisher9, "Fantasy", "../Images/Comics/Locke.jpg" );
         comicRepository.save(comic18);
 
+        Comic comic19 = new Comic("Love and Rockets", "Jaimie Hernandez", "Gilbert Hernandez", "Mario Hernandez", "Jaimie Hernandez", publisher10, "Alternative", "../Images/Comics/Love and rockets.jpg");
+        comicRepository.save(comic19);
 
-        Persona persona1 = new Persona("Superman", "Clark Kent", "Superhuman", "Action Comics #1", "../Images/Persona/Superman.jpg");
-        personaRepository.save(persona11);
-
-        Persona persona2 = new Persona("Incredible Hulk", "Bruce Banner", "Mental Rage", "The Incredible Hulk #1", "../Images/Persona/batman.jpg");
-        personaRepository.save(persona11);
-
-        Persona persona3 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "../Images/Persona/hulk.jpg");
-        personaRepository.save(persona11);
+        Date date1 = new Date(2019, 8, 10, 10, 40);
+        Review review1 = new Review(date1, 3, comic1, user1);
+        reviewRepository.save(review1);
 
 
 
+
+
+
+        Persona persona2 = new Persona("Superman", "Clark Kent", "Superhuman", "Action Comics #1", "../Images/Persona/Superman.jpg");
+        personaRepository.save(persona2);
+
+        Persona persona3 = new Persona("Incredible Hulk", "Bruce Banner", "Mental Rage", "The Incredible Hulk #1", "../Images/Persona/batman.jpg");
+        personaRepository.save(persona3);
+
+        Persona persona4 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "../Images/Persona/hulk.jpg");
+        personaRepository.save(persona4);
+=======
+
+
+    }
 
 }

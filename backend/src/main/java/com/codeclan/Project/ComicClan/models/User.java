@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,28 +23,20 @@ public class User implements Serializable {
     @Column(name = "alias")
     private String alias;
 
-    @JsonIgnoreProperties("users")
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "comics_reviews",
-            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)}
-    )
-    private List<Comic> comics;
+    @Column(name = "comics")
+    private ArrayList<Comic> comics;
 
-//    @JsonIgnore
-//    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-//    @Column(name = "reviews")
-//    private List<Review> reviews;
+    @JsonIgnoreProperties("users")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Review> reviews;
 
 
     public User(String name, String alias) {
         this.name = name;
         this.alias = alias;
         this.comics = new ArrayList<Comic>();
-//        this.reviews = new ArrayList<Review>();
+        this.reviews = new ArrayList<Review>();
     }
 
     public User(){
@@ -79,7 +71,7 @@ public class User implements Serializable {
         return this.comics;
     }
 
-    public void setComics(List<Comic> comics) {
+    public void setComics(ArrayList<Comic> comics) {
         this.comics = comics;
     }
 
@@ -87,11 +79,15 @@ public class User implements Serializable {
         this.comics.add(comic);
     }
 
-//    public List<Review> getReviews() {
-//        return this.reviews;
-//    }
-//
-//    public void setReviews(List<Review> reviews) {
-//        this.reviews = reviews;
-//    }
+    public List<Review> getReviews() {
+        return this.reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public void addReviews(Review review){
+        this.reviews.add(review);
+    }
 }
