@@ -14,10 +14,10 @@ const NavBar = (props) => {
             <Link to="/comics">Comics</Link>
           </li>
           <li className="navLink">
-            <Link to="characters">Characters</Link>
+            <Link to="/characters">Characters</Link>
           </li>
           <li>
-            <Link to="publishers">Publishers</Link>
+            <Link to="/publishers">Publishers</Link>
           </li>
         </ul>
 

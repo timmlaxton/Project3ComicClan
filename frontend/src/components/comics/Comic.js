@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
+import ReviewForm from '../reviews/ReviewForm';
 
 const Comic = (props) => {
 
@@ -11,6 +12,7 @@ const Comic = (props) => {
 
   return (
     <React.Fragment>
+      <h1>Comic Details</h1>
       <Link to={url} className="name">
         <h1>Writer: {props.comic.writer}</h1>
       </Link>
@@ -18,6 +20,7 @@ const Comic = (props) => {
       <p>Artist: {props.comic.artist}</p>
       <p>Colourer: {props.comic.colourer}</p>
       <p>Publisher: {props.comic.publisher.name}</p>
+      <ReviewForm />
     </React.Fragment>
   )
 

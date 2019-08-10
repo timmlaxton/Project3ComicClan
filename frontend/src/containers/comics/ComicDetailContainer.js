@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ComicDetails from '../../components/comics/ComicDetails';
+import ReviewForm from '../../components/reviews/ReviewForm';
 
 class ComicDetailContainer extends Component {
 
@@ -10,7 +11,7 @@ class ComicDetailContainer extends Component {
   render(){
     return(
       <div className="comic-detail-container">
-        <ComicDetails comics={this.props.comics}/>
+      
       </div>
     )
   }
