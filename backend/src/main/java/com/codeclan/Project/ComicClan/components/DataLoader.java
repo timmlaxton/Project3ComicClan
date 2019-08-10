@@ -46,6 +46,8 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user1);
         user1.addComic(comic1);
         userRepository.save(user1);
+        comic1.addUser(user1);
+        comicRepository.save(comic1);
     }
 
 

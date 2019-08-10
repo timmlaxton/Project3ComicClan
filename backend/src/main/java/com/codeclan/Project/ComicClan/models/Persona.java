@@ -29,7 +29,7 @@ public class Persona {
     @Column(name="first_Appearance")
     private String firstAppearance;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("comics")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(

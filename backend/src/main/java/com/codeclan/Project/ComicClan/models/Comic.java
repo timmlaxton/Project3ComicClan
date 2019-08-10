@@ -32,12 +32,12 @@ public class Comic implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-//    @JsonIgnoreProperties("comics")
+    @JsonIgnoreProperties("comics")
     @ManyToOne
     @JoinColumn(name = "publisher_id", nullable = false)
     private Publisher publisher;
 
-//    @JsonIgnoreProperties("comics")
+    @JsonIgnoreProperties("comics")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -46,6 +46,7 @@ public class Comic implements Serializable {
     )
     private List<Persona> personas;
 
+    @JsonIgnoreProperties("comics")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -173,17 +174,18 @@ public class Comic implements Serializable {
         return this.users.size();
     }
 
-    //    public void addPersona(Persona persona) {
-//        this.personas.add(persona);
-//    }
-//
-//    public void setPersonas(List<Persona> personas) {
-//        this.personas = personas;
-//    }
+    public void addPersona(Persona persona) {
+        this.personas.add(persona);
+    }
 
-    //    public void addReviews(Review review){
-//        this.reviews.add(review);
-//    }
+    public void addUser(User user){
+        this.users.add(user);
+    }
+
+
+    public void addReviews(Review review){
+        this.reviews.add(review);
+    }
 
 }
 
