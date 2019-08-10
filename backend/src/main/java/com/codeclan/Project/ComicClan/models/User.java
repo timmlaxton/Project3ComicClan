@@ -1,20 +1,34 @@
 package com.codeclan.Project.ComicClan.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
 
+    @Column(name = "name")
     private String name;
 
-
+    @Column(name = "alias")
     private String alias;
 
-
+    @JsonIgnore
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Comic> comics;
 
-
+    @JsonIgnore
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Review> reviews;
 
 
@@ -23,6 +37,18 @@ public class User {
         this.alias = alias;
         this.comics = new ArrayList<Comic>();
         this.reviews = new ArrayList<Review>();
+    }
+
+    public User(){
+
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
     }
 
     public String getName() {
