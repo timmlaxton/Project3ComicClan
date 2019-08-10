@@ -4,7 +4,16 @@
 }
 
 .component {
-  margin-top: 120px;
+  margin-top: 60px;
+  margin-left: 20px;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid black;
+  background-color: yellow;
+}
+
+.comic-component {
+  margin-top: 60px;
   margin-left: 20px;
   padding: 10px;
   width: 300px;

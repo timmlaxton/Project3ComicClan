@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
 import LoginPage from './users/LoginPage';
 import ComicList from '../components/comics/ComicList';
+import ComicDetailContainer from '../components/comics/ComicDetails';
 import PersonaList from '../components/personas/PersonaList';
 import PublisherList from '../components/publishers/PublisherList';
 import Request from '../helpers/request';
@@ -19,6 +20,7 @@ class MainContainer extends Component {
       users: [],
       reviews: []
     }
+    this.findComicById = this.findComicById.bind(this);
   }
 
 
@@ -41,6 +43,12 @@ class MainContainer extends Component {
     })
   }
 
+  findComicById(id){
+    const comic = this.state.comics.find((comic) => {
+      return comic.id === parseInt(id)
+    })
+    return comic;
+  }
 
   render(){
     return (
@@ -59,6 +67,13 @@ class MainContainer extends Component {
             {/* Get all comics */}
             <Route exact path="/comics" render={(props) => {
               return <ComicList comics={this.state.comics}/>
+            }} />
+
+            {/* Get one comic */}
+            <Route exact path="/comics/:id" render={(props) => {
+              const id = props.match.params.id;
+              const comic = this.findComicById(id);
+              return <ComicDetailContainer comic={comic} />
             }} />
 
             {/* Get all characters */}
