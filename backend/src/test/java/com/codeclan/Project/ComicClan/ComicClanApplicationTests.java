@@ -3,6 +3,7 @@ package com.codeclan.Project.ComicClan;
 import com.codeclan.Project.ComicClan.models.Comic;
 import com.codeclan.Project.ComicClan.models.Persona;
 import com.codeclan.Project.ComicClan.models.Publisher;
+import com.codeclan.Project.ComicClan.models.User;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
 import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
@@ -58,7 +59,10 @@ public class ComicClanApplicationTests {
 		personaRepository.save(persona1);
 	}
 
-
+	@Test
+	public void canAddUser(){
+		 user1
+	}
 
 	}
 
