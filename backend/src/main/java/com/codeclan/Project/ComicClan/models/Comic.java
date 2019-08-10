@@ -162,6 +162,3 @@ public class Comic implements Serializable {
 //    }
 
 }
-
-
-
