@@ -23,14 +23,21 @@ header {
   align-items: center;
 }
 
+header * {
+  display: inline;
+}
+
 header img {
   height: 100px;
   margin-left: 20px;
 }
 
+header li {
+  margin: 20px;
+}
+
 .navLink {
   display: inline;
-  padding: 25px;
 }
 
 body {

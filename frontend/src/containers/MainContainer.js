@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
 import ComicList from '../components/comics/ComicList';
 import PersonaList from '../components/personas/PersonaList';
+import PublisherList from '../components/publishers/PublisherList';
 import Request from '../helpers/request';
 
 
@@ -58,6 +59,11 @@ class MainContainer extends Component {
             {/* Get all characters */}
             <Route exact path="/characters" render={(props) => {
               return <PersonaList personas={this.state.personas}/>
+            }} />
+
+            {/* Get all publishers */}
+            <Route exact path="/publishers" render={(props) => {
+              return <PublisherList publishers={this.state.publishers}/>
             }} />
 
           </Switch>
