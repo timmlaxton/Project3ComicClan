@@ -46,12 +46,19 @@ public class Comic implements Serializable {
     )
     private List<Persona> personas;
 
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)}
+    )
+    private List<User> users;
+
     @Column(name = "reviews")
     private ArrayList<Review> reviews;
 
     @Column(name = "ratings")
     private Double rating;
-
 
 
     public Comic(String writer, String artist, String colourer, String letterer, Publisher publisher, String genre) {
@@ -63,6 +70,7 @@ public class Comic implements Serializable {
         this.genre = genre;
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
+        this.users = new ArrayList<User>();
         this.rating = rating;
     }
 
@@ -149,7 +157,23 @@ public class Comic implements Serializable {
         this.rating = rating;
     }
 
-//    public void addPersona(Persona persona) {
+    public void setPersonas(List<Persona> personas) {
+        this.personas = personas;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public int getUserAmount(){
+        return this.users.size();
+    }
+
+    //    public void addPersona(Persona persona) {
 //        this.personas.add(persona);
 //    }
 //

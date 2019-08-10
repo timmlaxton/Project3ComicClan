@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,21 +23,27 @@ public class User {
     private String alias;
 
     @JsonIgnore
+    @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "comics_reviews",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "comic_id", nullable = false, updatable = false)}
+    )
     private List<Comic> comics;
 
-    @JsonIgnore
-    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Review> reviews;
+//    @JsonIgnore
+//    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    @Column(name = "reviews")
+//    private List<Review> reviews;
 
 
     public User(String name, String alias) {
         this.name = name;
         this.alias = alias;
         this.comics = new ArrayList<Comic>();
-        this.reviews = new ArrayList<Review>();
+//        this.reviews = new ArrayList<Review>();
     }
 
     public User(){
@@ -75,11 +82,11 @@ public class User {
         this.comics = comics;
     }
 
-    public List<Review> getReviews() {
-        return this.reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
+//    public List<Review> getReviews() {
+//        return this.reviews;
+//    }
+//
+//    public void setReviews(List<Review> reviews) {
+//        this.reviews = reviews;
+//    }
 }

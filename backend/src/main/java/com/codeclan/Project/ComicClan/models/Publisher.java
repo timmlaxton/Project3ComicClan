@@ -19,7 +19,7 @@ public class Publisher implements Serializable {
 
     @JsonIgnore
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
     private List<Comic> comics;
 
     @Column(name = "logo")

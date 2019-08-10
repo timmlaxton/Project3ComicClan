@@ -7,6 +7,7 @@ import com.codeclan.Project.ComicClan.models.User;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
 import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
+import com.codeclan.Project.ComicClan.repositories.users.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class ComicClanApplicationTests {
 	@Autowired
 	PublisherRepository publisherRepository;
 
+	@Autowired
+	UserRepository userRepository;
 
 //	@Test
 //	public void contextLoads() {
@@ -61,7 +64,8 @@ public class ComicClanApplicationTests {
 
 	@Test
 	public void canAddUser(){
-		 user1
+		 User user1 = new User("Jordan", "Just Jordan");
+		 userRepository.save(user1);
 	}
 
 	}
