@@ -29,6 +29,12 @@ public class Comic implements Serializable {
     @Column(name = "genre")
     private String genre;
 
+    @Coloumn(name = "title")
+    private String title;
+
+    @Coloumn(name = "image")
+    private String image;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -56,7 +62,8 @@ public class Comic implements Serializable {
     private Double rating;
 
 
-    public Comic(String writer, String artist, String colourer, String letterer, Publisher publisher, String genre) {
+    public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
+        this.title = title:
         this.writer = writer;
         this.artist = artist;
         this.colourer = colourer;
@@ -66,6 +73,7 @@ public class Comic implements Serializable {
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
         this.rating = rating;
+        this.image = image
     }
 
     public Comic() {
@@ -75,8 +83,24 @@ public class Comic implements Serializable {
         return Id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public void setId(Long id) {
         Id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getWriter() {
@@ -167,6 +191,3 @@ public class Comic implements Serializable {
         return this.reviews.size();
     }
 }
-
-
-
