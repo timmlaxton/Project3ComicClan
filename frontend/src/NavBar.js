@@ -7,7 +7,11 @@ const NavBar = (props) => {
 
         <img src="/images/ComicClan_Logo_Adventure.png" alt="ComicClan Logo"/>
 
-          <h1>Hello Laura!</h1>
+        <ul>
+          <li className="navLink">
+            <Link to="/comics">Comics</Link>
+          </li>
+        </ul>
 
     </header>
   )

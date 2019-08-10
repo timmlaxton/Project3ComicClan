@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
+import ComicList from '../components/comics/ComicList'
+import Request from '../helpers/request';
+
 
 class MainContainer extends Component {
 
@@ -15,10 +18,45 @@ class MainContainer extends Component {
     }
   }
 
+
+  componentDidMount(){
+    const request = new Request()
+
+    const promise1 = request.get('/api/comics');
+    const promise2 = request.get('/api/characters');
+    const promise3 = request.get('/api/publishers');
+
+    const promises = [promise1, promise2, promise3];
+
+    Promise.all(promises).then((data) => {
+      console.log(data);
+      this.setState({
+        comics: data[0],
+        personas: data[1],
+        publishers: data[2]
+      })
+    })
+  }
+
+
   render(){
     return (
     <div>
-      <NavBar />
+      <Router>
+        <React.Fragment>
+
+          <NavBar />
+
+          <Switch>
+
+            {/* Get all comics */}
+            <Route exact path="/comics" render={(props) => {
+              return <ComicList comics={this.state.comics}/>
+            }} />
+
+          </Switch>
+        </React.Fragment>
+      </Router>
     </div>
   )
   }
