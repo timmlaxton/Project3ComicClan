@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
+import LoginPage from './users/LoginPage';
 import ComicList from '../components/comics/ComicList';
 import PersonaList from '../components/personas/PersonaList';
 import PublisherList from '../components/publishers/PublisherList';
@@ -50,6 +51,10 @@ class MainContainer extends Component {
           <NavBar />
 
           <Switch>
+            {/* Login Page */}
+            <Route exact path="/" render={() => {
+              return <LoginPage />
+            }} />
 
             {/* Get all comics */}
             <Route exact path="/comics" render={(props) => {
