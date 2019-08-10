@@ -4,8 +4,10 @@ package com.codeclan.Project.ComicClan.components;
 import com.codeclan.Project.ComicClan.models.Comic;
 import com.codeclan.Project.ComicClan.models.Persona;
 import com.codeclan.Project.ComicClan.models.Publisher;
+import com.codeclan.Project.ComicClan.models.User;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
 import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
+import com.codeclan.Project.ComicClan.repositories.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -24,6 +26,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     PublisherRepository publisherRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
 
     public DataLoader(){
 
@@ -37,8 +42,10 @@ public class DataLoader implements ApplicationRunner {
         comicRepository.save(comic1);
         Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Comic");
         personaRepository.save(persona1);
-
-        // DID THIS WORK?
+        User user1 = new User("Tim", "Comic Dude");
+        userRepository.save(user1);
+        user1.addComic(comic1);
+        userRepository.save(user1);
     }
 
 

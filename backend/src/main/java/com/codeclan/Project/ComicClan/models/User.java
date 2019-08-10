@@ -1,6 +1,7 @@
 package com.codeclan.Project.ComicClan.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class User implements Serializable {
     @Column(name = "alias")
     private String alias;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("users")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -80,6 +81,10 @@ public class User implements Serializable {
 
     public void setComics(List<Comic> comics) {
         this.comics = comics;
+    }
+
+    public void addComic(Comic comic){
+        this.comics.add(comic);
     }
 
 //    public List<Review> getReviews() {
