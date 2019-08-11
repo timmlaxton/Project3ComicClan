@@ -17,7 +17,10 @@ public class Publisher implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @JsonIgnore
+    @Column(name = "image")
+    private String image;
+
+    @JsonIgnoreProperties("publishers")
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
     private List<Comic> comics;
@@ -29,10 +32,10 @@ public class Publisher implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    public Publisher(String name) {
+    public Publisher(String name, String image) {
         this.name = name;
         this.comics = new ArrayList<Comic>();
-        this.logo = logo;
+        this.image = image;
 
     }
 

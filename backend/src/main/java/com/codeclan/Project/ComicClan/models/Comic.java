@@ -1,6 +1,7 @@
 package com.codeclan.Project.ComicClan.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
@@ -28,16 +29,22 @@ public class Comic implements Serializable {
     @Column(name = "genre")
     private String genre;
 
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "image")
+    private String image;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-//    @JsonIgnoreProperties("comics")
+    @JsonIgnoreProperties("comics")
     @ManyToOne
     @JoinColumn(name = "publisher_id", nullable = false)
     private Publisher publisher;
 
-//    @JsonIgnoreProperties("comics")
+    @JsonIgnoreProperties("comics")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -46,15 +53,18 @@ public class Comic implements Serializable {
     )
     private List<Persona> personas;
 
-    @Column(name = "reviews")
-    private ArrayList<Review> reviews;
+    @JsonIgnoreProperties("comics")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @OneToMany(mappedBy = "comic", fetch = FetchType.LAZY)
+    private List<Review> reviews;
 
     @Column(name = "ratings")
     private Double rating;
 
 
 
-    public Comic(String writer, String artist, String colourer, String letterer, Publisher publisher, String genre) {
+    public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
+        this.title = title;
         this.writer = writer;
         this.artist = artist;
         this.colourer = colourer;
@@ -64,6 +74,7 @@ public class Comic implements Serializable {
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
         this.rating = rating;
+        this.image = image;
     }
 
     public Comic() {
@@ -73,8 +84,24 @@ public class Comic implements Serializable {
         return Id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public void setId(Long id) {
         Id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getWriter() {
@@ -133,7 +160,7 @@ public class Comic implements Serializable {
         this.personas = personas;
     }
 
-    public ArrayList<Review> getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
@@ -149,19 +176,19 @@ public class Comic implements Serializable {
         this.rating = rating;
     }
 
-//    public void addPersona(Persona persona) {
-//        this.personas.add(persona);
-//    }
-//
-//    public void setPersonas(List<Persona> personas) {
-//        this.personas = personas;
-//    }
+    public void setPersonas(List<Persona> personas) {
+        this.personas = personas;
+    }
 
-    //    public void addReviews(Review review){
-//        this.reviews.add(review);
-//    }
+    public void addPersona(Persona persona) {
+        this.personas.add(persona);
+    }
 
+    public void addReviews(Review review){
+        this.reviews.add(review);
+    }
+
+    public int getReviewsAmount() {
+        return this.reviews.size();
+    }
 }
-
-
-

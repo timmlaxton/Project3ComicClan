@@ -1,16 +1,20 @@
 package com.codeclan.Project.ComicClan;
 
-import com.codeclan.Project.ComicClan.models.Comic;
-import com.codeclan.Project.ComicClan.models.Persona;
-import com.codeclan.Project.ComicClan.models.Publisher;
+import com.codeclan.Project.ComicClan.models.*;
 import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
 import com.codeclan.Project.ComicClan.repositories.publishers.PublisherRepository;
+import com.codeclan.Project.ComicClan.repositories.reviews.ReviewRepository;
+import com.codeclan.Project.ComicClan.repositories.users.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Date;
+
+import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,6 +29,11 @@ public class ComicClanApplicationTests {
 	@Autowired
 	PublisherRepository publisherRepository;
 
+	@Autowired
+	UserRepository userRepository;
+
+	@Autowired
+	ReviewRepository reviewRepository;
 
 //	@Test
 //	public void contextLoads() {
@@ -50,15 +59,35 @@ public class ComicClanApplicationTests {
 
 	@Test
 	public void createComicAndCharacter(){
-		Publisher publisher1 = new Publisher("Marvel");
+		Publisher publisher1 = new Publisher("Marvel", "");
 		publisherRepository.save(publisher1);
-		Comic comic1 = new Comic("Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero");
+		Comic comic1 = new Comic("Spiderman", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "");
 		comicRepository.save(comic1);
-		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Comic");
+		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Daredevil", "");
 		personaRepository.save(persona1);
 	}
 
+	@Test
+	public void canAddUser(){
+		 User user1 = new User("Jordan", "Just Jordan");
+		 userRepository.save(user1);
 	}
+
+	@Test
+	public void canAddReview(){
+		Publisher publisher1 = new Publisher("Marvel", "");
+		publisherRepository.save(publisher1);
+		User user1 = new User("Jordan", "Just Jordan");
+		userRepository.save(user1);
+		Comic comic1 = new Comic("Spiderman", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero" , "");
+		comicRepository.save(comic1);
+		Date date = new Date(2019, 05, 19, 06, 22);
+		Review review1 = new Review(date, 4, comic1, user1);
+		reviewRepository.save(review1);
+
+	}
+
+}
 
 
 
