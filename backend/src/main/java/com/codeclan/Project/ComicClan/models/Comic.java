@@ -191,4 +191,14 @@ public class Comic implements Serializable {
     public int getReviewsAmount() {
         return this.reviews.size();
     }
+
+    public Double getAverageRating() {
+        int total = 0;
+        for(int i = 0; i < this.getReviewsAmount(); i++){
+            total += this.reviews.get(i).getRating();
+        }
+        int averageRatingInt = total / this.getReviewsAmount();
+        Double averageRating = new Double (((averageRatingInt * 100) / 100));
+        return averageRating;
+    }
 }
