@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 
-import static org.springframework.test.util.AssertionErrors.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -61,9 +61,9 @@ public class ComicClanApplicationTests {
 	public void createComicAndCharacter(){
 		Publisher publisher1 = new Publisher("Marvel", "");
 		publisherRepository.save(publisher1);
-		Comic comic1 = new Comic("Spiderman", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "");
+		Comic comic1 = new Comic("", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "");
 		comicRepository.save(comic1);
-		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Daredevil", "");
+		Persona persona1 = new Persona("DareDevil", "Matt Murdoch", "Blind", "Comic", "");
 		personaRepository.save(persona1);
 	}
 
@@ -79,12 +79,28 @@ public class ComicClanApplicationTests {
 		publisherRepository.save(publisher1);
 		User user1 = new User("Jordan", "Just Jordan");
 		userRepository.save(user1);
-		Comic comic1 = new Comic("Spiderman", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero" , "");
+		Comic comic1 = new Comic("", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "");
 		comicRepository.save(comic1);
 		Date date = new Date(2019, 05, 19, 06, 22);
 		Review review1 = new Review(date, 4, comic1, user1);
 		reviewRepository.save(review1);
 
+	}
+
+	@Test
+	public void canCalculateAvgAmount(){
+		Publisher publisher1 = new Publisher("Marvel", "");
+		publisherRepository.save(publisher1);
+		User user1 = new User("Jordan", "Just Jordan");
+		userRepository.save(user1);
+		Comic comic1 = new Comic("", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "");
+		comicRepository.save(comic1);
+		Date date = new Date(2019, 05, 19, 06, 22);
+		Review review1 = new Review(date, 4, comic1, user1);
+		reviewRepository.save(review1);
+		Review review2 = new Review(date, 4, comic1, user1);
+		reviewRepository.save(review2);
+		assertEquals(3.33, comic1.getRating(), 0.01);
 	}
 
 }

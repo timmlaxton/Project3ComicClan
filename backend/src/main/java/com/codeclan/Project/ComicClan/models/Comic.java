@@ -20,7 +20,7 @@ public class Comic implements Serializable {
     @Column(name = "artist")
     private String artist;
 
-    @Column(name ="colourer")
+    @Column(name = "colourer")
     private String colourer;
 
     @Column(name = "letter")
@@ -59,7 +59,7 @@ public class Comic implements Serializable {
     private List<Review> reviews;
 
     @Column(name = "ratings")
-    private Double rating;
+    private double rating;
 
 
 
@@ -73,7 +73,7 @@ public class Comic implements Serializable {
         this.genre = genre;
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
-        this.rating = rating;
+        this.rating = 0;
         this.image = image;
     }
 
@@ -168,11 +168,11 @@ public class Comic implements Serializable {
         this.reviews = reviews;
     }
 
-    public Double getRating() {
-        return rating;
+    public double getRating() {
+        return this.rating;
     }
 
-    public void setRating(Double rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -184,11 +184,21 @@ public class Comic implements Serializable {
         this.personas.add(persona);
     }
 
-    public void addReviews(Review review){
+    public void addReviews(Review review) {
         this.reviews.add(review);
     }
 
     public int getReviewsAmount() {
         return this.reviews.size();
+    }
+
+    public void getAverageRating() {
+        int total = 0;
+        for (int i = 0; i < this.getReviewsAmount(); i++) {
+            total += this.reviews.get(i).getRating();
+            double averageRating = total / this.getReviewsAmount();
+            this.rating = averageRating;
+        }
+
     }
 }

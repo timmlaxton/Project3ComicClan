@@ -37,6 +37,8 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) throws Exception {
+<<<<<<< HEAD
+=======
 
         Publisher publisher1 = new Publisher("Marvel", "../Images/Publisher/Marvel.jpg");
         publisherRepository.save(publisher1);
@@ -153,6 +155,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
+>>>>>>> develop
     }
 
 }

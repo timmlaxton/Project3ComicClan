@@ -19,7 +19,7 @@ public class Review {
     private Date date;
 
     @Column(name = "rating")
-    private int rating;
+    private double rating;
 
     @JsonIgnoreProperties("reviews")
     @ManyToOne
@@ -31,13 +31,14 @@ public class Review {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Review(Date date, int rating, Comic comic, User user) {
+    public Review(Date date, double rating, Comic comic, User user) {
         this.date = date;
         this.rating = rating;
         this.comic = comic;
         comic.addReviews(this);
         this.user = user;
         user.addReviews(this);
+        comic.getAverageRating();
     }
 
     public Review(){}
@@ -58,7 +59,7 @@ public class Review {
         this.date = date;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
