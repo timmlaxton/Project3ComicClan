@@ -13,9 +13,9 @@ const ComicList = (props) => {
     return (
       <li key={index} className="component-item">
         <div className="component">
-<Link to={url} >
-        <img src={comic.image} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />
-</Link>
+        <Link to={url} >
+          <img src={comic.image} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />
+        </Link>
         </div>
       </li>
     )

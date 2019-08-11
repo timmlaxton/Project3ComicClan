@@ -18,6 +18,9 @@ public class Review {
     @Column(name = "date")
     private Date date;
 
+    @Column(name="review")
+    private String review;
+
     @Column(name = "rating")
     private double rating;
 
@@ -31,8 +34,9 @@ public class Review {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Review(Date date, double rating, Comic comic, User user) {
+    public Review(Date date, String review, double rating, Comic comic, User user) {
         this.date = date;
+        this.review = review;
         this.rating = rating;
         this.comic = comic;
         comic.addReviews(this);
@@ -57,6 +61,18 @@ public class Review {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
     public double getRating() {
