@@ -2,30 +2,30 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const LoginComponent = (props) => {
-  const options = this.state.users.map( (user, index ) => {
+  const options = props.users.map( (user, index ) => {
     return <option value={index} key={index}>{user.name}</option>
   })
 
   const homepageUrl = "/"
 
-    function handleChange(event){
-      props.handleUserSelect(event.target.value)
+  const handleSubmit = (event) => {
+      console.log(event.target.user.value);
+      event.preventDefault();
+      const user = props.users[event.target.user.value]
+      props.onUserSelected(user)
+      console.log(user);
     }
 
   return (
     <div className="login">
       <h1>Welcome to Comic Clan!</h1>
 
-        <select
-        id="country-selector"
-        defaultValue="default"
-        onchange={handleChange}
-        >
-          <option value="" disabled>Please select your user name:</option>
-          {this.options}
-        </select>
-        <br />
-      <Link to={homepageUrl}><button type="button">Enter</button></Link>
+        <form onSubmit={handleSubmit}>
+          <select name="user">
+            {options}
+          </select>
+          <button type="submit">Save</button>
+        </form>
     </div>
   );
 

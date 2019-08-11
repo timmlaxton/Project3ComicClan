@@ -72,7 +72,7 @@ class MainContainer extends Component {
           <Switch>
             {/* Login Page */}
             <Route exact path="/" render={() => {
-              return <LoginPage users={this.state.users} currentUser={this.handleUserSelect()}/>
+              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect}/>
             }} />
 
             {/* Get all comics */}
