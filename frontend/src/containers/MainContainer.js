@@ -30,15 +30,19 @@ class MainContainer extends Component {
     const promise1 = request.get('/api/comics');
     const promise2 = request.get('/api/characters');
     const promise3 = request.get('/api/publishers');
+    const promise4 = request.get('/api/users');
+    const promise5 = request.get('/api/reviews')
 
-    const promises = [promise1, promise2, promise3];
+    const promises = [promise1, promise2, promise3, promise4, promise5];
 
     Promise.all(promises).then((data) => {
       console.log(data);
       this.setState({
         comics: data[0],
         personas: data[1],
-        publishers: data[2]
+        publishers: data[2],
+        users: data[3],
+        reviews: data[4]
       })
     })
   }
@@ -61,7 +65,7 @@ class MainContainer extends Component {
           <Switch>
             {/* Login Page */}
             <Route exact path="/" render={() => {
-              return <LoginPage />
+              return <LoginPage users={this.state.users}/>
             }} />
 
             {/* Get all comics */}
@@ -85,10 +89,10 @@ class MainContainer extends Component {
             <Route exact path="/publishers" render={(props) => {
               return <PublisherList publishers={this.state.publishers}/>
             }} />
-
           </Switch>
         </React.Fragment>
       </Router>
+
     </div>
   )
   }
