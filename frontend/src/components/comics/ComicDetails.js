@@ -18,6 +18,7 @@ const ComicDetails = (props) => {
     </div>
   )
 
+
 }
 
 export default ComicDetails;

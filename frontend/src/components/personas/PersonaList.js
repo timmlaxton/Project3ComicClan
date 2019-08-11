@@ -7,6 +7,7 @@ const PersonaList = (props) => {
     return (
       <li key={index} className="component-item">
         <div className="component">
+        
           <Persona persona={persona} />
         </div>
       </li>

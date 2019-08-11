@@ -72,7 +72,7 @@ public class DataLoader implements ApplicationRunner {
         Comic comic1 = new Comic(" X-men: House of X", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "/images/Images/Comics/X-men.jpg");
         comicRepository.save(comic1);
 
-        Persona persona1 = new Persona("Cyclops", "Scott summers", "Lazer Beams", "Comic", "/images/Images/Persona/ScottSummers.jpg");
+        Persona persona1 = new Persona("Cyclops", "Scott summers", "Lazer Beams", "Comic", "/images/Images/Persona/cyclops.jpg");
         personaRepository.save(persona1);
         User user1 = new User("Tim", "Comic Dude");
         userRepository.save(user1);
@@ -146,10 +146,10 @@ public class DataLoader implements ApplicationRunner {
         Persona persona2 = new Persona("Superman", "Clark Kent", "Superhuman", "Action Comics #1", "/images/Images/Persona/Superman.jpg");
         personaRepository.save(persona2);
 
-        Persona persona3 = new Persona("Incredible Hulk", "Bruce Banner", "Mental Rage", "The Incredible Hulk #1", "/images/Images/Persona/batman.jpg");
+        Persona persona3 = new Persona("Incredible Hulk", "Bruce Banner", "Mental Rage", "The Incredible Hulk #1", "/images/Images/Persona/hulk.jpg");
         personaRepository.save(persona3);
 
-        Persona persona4 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/hulk.jpg");
+        Persona persona4 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/batman.jpg");
         personaRepository.save(persona4);
 
 

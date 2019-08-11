@@ -10,7 +10,7 @@ const Publisher = (props) => {
   return (
     <React.Fragment>
       <h1>Name: {props.publisher.name}</h1>
-      <img src={props.publisher.logo} Transformation height="150" width="100" crop="fill" effect="sepia" radius="20" />
+      <img src={props.publisher.logo} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />
     </React.Fragment>
   )
 

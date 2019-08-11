@@ -10,6 +10,7 @@
   width: 300px;
   border: 1px solid black;
   background-color: yellow;
+
 }
 
 .comic-component {
@@ -18,12 +19,17 @@
   padding: 10px;
   width: 300px;
   border: 1px solid black;
-  background-color: yellow;
+  background-color: red;
+
 }
 
 ul.component-list {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
 }
+
 
 header {
   position: fixed;
@@ -51,10 +57,12 @@ header li {
 
 .navLink {
   display: inline;
+  
+
 }
 
 body {
-    background-color: green;
+    background-color: white;
     height: 90vh;
 }
 
@@ -64,6 +72,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 
 a {
