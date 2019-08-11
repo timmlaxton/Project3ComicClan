@@ -63,7 +63,7 @@ public class Comic implements Serializable {
 
 
 
-    public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String Image) {
+    public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String image) {
         this.title = title;
         this.writer = writer;
         this.artist = artist;
