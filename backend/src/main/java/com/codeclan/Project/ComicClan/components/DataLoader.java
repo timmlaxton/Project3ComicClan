@@ -37,8 +37,7 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) throws Exception {
-<<<<<<< HEAD
-=======
+
 
         Publisher publisher1 = new Publisher("Marvel", "../Images/Publisher/Marvel.jpg");
         publisherRepository.save(publisher1);
@@ -70,7 +69,7 @@ public class DataLoader implements ApplicationRunner {
         Publisher publisher10 = new Publisher("Fantagraphics", "../Images/Publisher/Fantagraphics Logo.jpg");
         publisherRepository.save(publisher10);
 
-        Comic comic1 = new Comic("", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "../Images/Comics/X-men.jpg");
+        Comic comic1 = new Comic("", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "/images/Images/Comics/X-men.jpg");
         comicRepository.save(comic1);
 
         Persona persona1 = new Persona("Cyclops", "Scott summers", "Lazer Beams", "Comic", "../Images/Persona/ScottSummers.jpg");
@@ -102,7 +101,7 @@ public class DataLoader implements ApplicationRunner {
         Comic comic8 = new Comic("Deadly Class", "Rick Remender", "Wes Craig", "Lee Loughridge", "Rus Wooton", publisher3, "Superhero", "../Images/Comics/DeadlyClass.jpg");
         comicRepository.save(comic8);
 
-        Comic comic9 = new Comic("Head Looper", "Andrew Maclean", "Andrew Maclean", "Jordie Bellaire", "Andrew Maclean", publisher3, "Fantasy", "../Images/Comics/HeadLopper.jpg");
+        Comic comic9 = new Comic("Head Looper", "Andrew Maclean", "Andrew Maclean", "Jordie Bellaire", "Andrew Maclean", publisher3, "Fantasy", "../images/Comics/HeadLopper.jpg");
         comicRepository.save(comic9);
 
         Comic comic10 = new Comic("Bataman", "Scott Snyder", "Greg Capullo", "FCO Plascencia", "Richard Starkings", publisher2, "Superhero", "../Images/Comics/Batman.jpg");
@@ -155,7 +154,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
->>>>>>> develop
+
     }
 
 }
