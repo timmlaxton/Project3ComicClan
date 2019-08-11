@@ -9,6 +9,7 @@ const Persona = (props) =>{
 
   return (
     <React.Fragment>
+    <img src={props.persona.image} Transformation height="150" width="100" crop="fill" effect="sepia" radius="20" />
       <h1>Name: {props.persona.name}</h1>
       <p>Alias: {props.persona.alias}</p>
       <p>Super Power: {props.persona.superPower}</p>

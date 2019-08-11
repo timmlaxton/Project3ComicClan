@@ -32,10 +32,10 @@ public class Publisher implements Serializable {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    public Publisher(String name, String image) {
+    public Publisher(String name, String logo) {
         this.name = name;
         this.comics = new ArrayList<Comic>();
-        this.image = image;
+        this.logo = logo;
 
     }
 
