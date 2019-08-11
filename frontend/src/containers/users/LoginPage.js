@@ -1,22 +1,29 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
-class LoginPage extends Component {
+const LoginPage = (props) => {
+  const options = props.users.map( (user, index ) => {
+    return <option value={index} key={index}>{user.name}</option>
+  })
 
-
-  render(){
-    return (
-      <div className="login">
-        <h1>Welcome to Comic Clan!</h1>
-
-          <select name="user">
-            <option value="" disabled>Please select your user name:</option>
-          </select>
-          <br />
-        <button type="submit">Enter</button>
-      </div>
-    );
+  function handleChange(event){
+    props.onUserSelected(event.target.value)
   }
+
+  return (
+    <div className="login">
+      <h1>Welcome to Comic Clan!</h1>
+
+        <select id="user-selector"
+         defaultValue="default"
+         onChange={handleChange}>
+          <option value="" disabled>Please select your user name:</option>
+          {options}
+        </select>
+        <br />
+      <button type="submit">Enter</button>
+    </div>
+  );
 
 }
 
