@@ -150,7 +150,6 @@ public class DataLoader implements ApplicationRunner {
 
         Persona persona4 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "../Images/Persona/hulk.jpg");
         personaRepository.save(persona4);
-=======
 
 
     }
