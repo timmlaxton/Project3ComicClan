@@ -5,6 +5,10 @@ const NavBar = (props) => {
   return(
     <header>
 
+    <div class="topnav">
+  
+</div>
+
         <Link to="/">
         <img src="/images/ComicClan_Logo_Adventure.png" alt="ComicClan Logo"/>
         </Link>
