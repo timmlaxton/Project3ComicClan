@@ -18,8 +18,10 @@ class MainContainer extends Component {
       personas: [],
       publishers: [],
       users: [],
-      reviews: []
-    }
+      reviews: [],
+      currentUser: null
+    };
+    this.handleUserSelect = this.handleUserSelect.bind(this);
     this.findComicById = this.findComicById.bind(this);
   }
 
@@ -47,6 +49,11 @@ class MainContainer extends Component {
     })
   }
 
+  handleUserSelect(index){
+    const selectedUser = this.state.users[index]
+    this.setState({currentUser: selectedUser})
+  }
+
   findComicById(id){
     const comic = this.state.comics.find((comic) => {
       return comic.id === parseInt(id)
@@ -65,7 +72,7 @@ class MainContainer extends Component {
           <Switch>
             {/* Login Page */}
             <Route exact path="/" render={() => {
-              return <LoginPage users={this.state.users}/>
+              return <LoginPage users={this.state.users} currentUser={this.handleUserSelect()}/>
             }} />
 
             {/* Get all comics */}
