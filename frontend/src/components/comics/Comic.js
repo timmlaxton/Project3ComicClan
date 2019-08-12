@@ -8,9 +8,7 @@ const Comic = (props) => {
     return "Loading...comic"
   }
 
-const reviews = props.comic.reviews.map((review, index) => {
-  return <li key={index}>{review.review}</li>
-})
+
 
   const url = "/comics/" + props.comic.id;
 
@@ -26,7 +24,6 @@ const reviews = props.comic.reviews.map((review, index) => {
       <p>Artist: {props.comic.artist}</p>
       <p>Colourer: {props.comic.colourer}</p>
       <p>Publisher: {props.comic.publisher.name}</p>
-      <ul>Reviews: {reviews}</ul>
     </React.Fragment>
   )
 
