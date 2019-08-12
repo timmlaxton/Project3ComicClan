@@ -7,6 +7,8 @@ const Persona = (props) =>{
     return "Loading...character"
   }
 
+    const url = "/characters/" + props.persona.id;
+
   return (
     <React.Fragment>
     <img src={props.persona.image} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />

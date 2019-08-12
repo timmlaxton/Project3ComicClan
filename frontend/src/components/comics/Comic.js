@@ -14,9 +14,10 @@ const Comic = (props) => {
     <React.Fragment>
 
       <Link to={url} className="name">
-        <h1>Writer: {props.comic.writer}</h1>
+
       </Link>
       <img src={props.comic.image} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />
+      <p>Writer: {props.comic.writer}</p>
       <p> Title: {props.comic.title}</p>
       <p>Letterer: {props.comic.letterer}</p>
       <p>Artist: {props.comic.artist}</p>

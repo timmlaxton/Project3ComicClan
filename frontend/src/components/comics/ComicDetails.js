@@ -12,7 +12,7 @@ const ComicDetails = (props) => {
 
   return (
     <div className="comic-component">
-    <h1>Comic Details</h1>
+
       <Comic comic={props.comic}/>
           <ReviewForm />
     </div>
