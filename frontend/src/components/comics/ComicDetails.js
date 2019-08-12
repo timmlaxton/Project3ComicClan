@@ -14,7 +14,7 @@ const ComicDetails = (props) => {
   function handleReviewPost(review) {
     console.log(review);
     const request = new Request();
-    request.post('https://localhost:8080/api/reviews', review).then(() => {
+    request.post('api/reviews', review).then(() => {
       // window.location = '/comics/' + props.comic.id
     })
   }
