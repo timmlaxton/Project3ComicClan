@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import LoginComponent from '../../components/users/LoginComponent.js'
+import NewUserForm from '../../components/users/NewUserForm.js'
 
 class LoginPage extends Component {
   constructor({props}){
@@ -14,6 +15,7 @@ class LoginPage extends Component {
     return (
       <div>
         <LoginComponent onUserSelected={this.onUserSelected} users={this.props.users}/>
+        <NewUserForm />
       </div>
     )
   }
