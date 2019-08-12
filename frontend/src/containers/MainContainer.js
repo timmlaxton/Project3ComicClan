@@ -21,17 +21,10 @@ class MainContainer extends Component {
       publishers: [],
       users: [],
       reviews: [],
-<<<<<<< HEAD
-      currentUser: null,
-      reviewedComic: null
-=======
-
-
       currentUser: null
->>>>>>> develop
     };
     this.handleUserSelect = this.handleUserSelect.bind(this);
- 
+
     this.findComicById = this.findComicById.bind(this);
     this.findCharacterById = this.findCharacterById.bind(this);
   }
