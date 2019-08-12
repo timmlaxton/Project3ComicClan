@@ -13,10 +13,12 @@ const NewUserForm = (props) => {
 
   return (
     <div className="new-user-form">
+    <h2>New user? Register now:</h2>
+    <br/>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Name" name="name" />
         <input type="text" placeholder="Alias" name="alias" />
-        <button type="submit">Save</button>
+        <button type="submit">Register!</button>
       </form>
     </div>
   )
