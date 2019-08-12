@@ -7,15 +7,24 @@ class LoginPage extends Component {
   constructor(props){
     super(props);
     this.onUserSelected =  this.onUserSelected.bind(this)
+    this.handleNewUserPost = this.handleNewUserPost.bind(this)
   }
   onUserSelected(user){
     this.props.handleUserSelect(user)
   }
+
+  handleNewUserPost(newUser){
+    const request = new Request();
+    request.post('api/users', newUser).then(() => {
+        
+    })
+  }
+
   render(){
     return (
       <div>
         <LoginComponent onUserSelected={this.onUserSelected} users={this.props.users}/>
-        <NewUserForm />
+        <NewUserForm handleNewUserPost={this.handleNewUserPost}/>
       </div>
     )
   }

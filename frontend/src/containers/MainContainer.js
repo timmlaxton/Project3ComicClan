@@ -9,6 +9,7 @@ import PublisherList from '../components/publishers/PublisherList';
 import ReviewFormContainer from './reviews/ReviewFormContainer';
 import Request from '../helpers/request';
 import PersonaDetails from '../components/personas/PersonaDetails'
+import UserPage from '../components/users/UserPage'
 
 
 class MainContainer extends Component {
@@ -86,6 +87,11 @@ class MainContainer extends Component {
 
               return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect}/>
 
+            }} />
+
+            {/* Get User Page */}
+            <Route exact path="/users/:id" render={(props) => {
+                return <UserPage user={this.state.currentUser} />
             }} />
 
             {/* Get all comics */}
