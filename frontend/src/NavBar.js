@@ -5,8 +5,8 @@ const NavBar = (props) => {
   return(
     <header>
 
-    <div class="topnav">
-  
+    <div className="topnav">
+
 </div>
 
         <Link to="/">

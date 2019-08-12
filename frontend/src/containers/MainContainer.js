@@ -6,6 +6,7 @@ import ComicList from '../components/comics/ComicList';
 import ComicDetails from '../components/comics/ComicDetails';
 import PersonaList from '../components/personas/PersonaList';
 import PublisherList from '../components/publishers/PublisherList';
+import ReviewFormContainer from './reviews/ReviewFormContainer';
 import Request from '../helpers/request';
 import PersonaDetails from '../components/personas/PersonaDetails'
 
@@ -20,8 +21,12 @@ class MainContainer extends Component {
       publishers: [],
       users: [],
       reviews: [],
-      persona: null
-    }
+
+
+      currentUser: null
+    };
+    this.handleUserSelect = this.handleUserSelect.bind(this);
+ 
     this.findComicById = this.findComicById.bind(this);
     this.findCharacterById = this.findCharacterById.bind(this);
   }
@@ -50,6 +55,12 @@ class MainContainer extends Component {
     })
   }
 
+  handleUserSelect(index){
+    const selectedUser = this.state.users[index]
+    this.setState({currentUser: selectedUser})
+    console.log(this.state.currentUser);
+  }
+
   findComicById(id){
     const comic = this.state.comics.find((comic) => {
       return comic.id === parseInt(id)
@@ -76,7 +87,9 @@ class MainContainer extends Component {
           <Switch>
             {/* Login Page */}
             <Route exact path="/" render={() => {
-              return <LoginPage users={this.state.users}/>
+
+              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect}/>
+
             }} />
 
             {/* Get all comics */}
@@ -107,10 +120,10 @@ class MainContainer extends Component {
             <Route exact path="/publishers" render={(props) => {
               return <PublisherList publishers={this.state.publishers}/>
             }} />
+
           </Switch>
         </React.Fragment>
       </Router>
-
     </div>
   )
   }

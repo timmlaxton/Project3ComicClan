@@ -135,10 +135,12 @@ public class DataLoader implements ApplicationRunner {
         comicRepository.save(comic19);
 
         Date date1 = new Date(2019, 8, 10, 10, 40);
-        Review review1 = new Review(date1, 3, comic1, user1);
+        Review review1 = new Review(date1, "This comic is awesome!", 3, comic1, user1);
         reviewRepository.save(review1);
 
-
+        Date date2 = new Date(2019, 8, 11, 10, 05);
+        Review review2 = new Review(date2, "Seriously, read this comic!", 1, comic1, user1);
+        reviewRepository.save(review2);
 
 
 
