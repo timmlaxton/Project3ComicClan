@@ -13,7 +13,7 @@ class LoginPage extends Component {
   render(){
     return (
       <div>
-        <LoginComponent onUserSelected={this.onUserSelected} users={this.props.users}/>
+        <LoginComponent onUserSelected={this.props.handleUserSelect} users={this.props.users}/>
       </div>
     )
   }

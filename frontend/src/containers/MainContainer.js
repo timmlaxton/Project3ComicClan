@@ -50,10 +50,10 @@ class MainContainer extends Component {
     })
   }
 
-  handleUserSelect(index){
-    const selectedUser = this.state.users[index]
-    this.setState({currentUser: selectedUser})
-    console.log(this.state.currentUser);
+  handleUserSelect(currentUser){
+    this.setState({currentUser}, () => {
+      console.log(this.state.currentUser);
+    })
   }
 
   findComicById(id){
@@ -88,7 +88,7 @@ class MainContainer extends Component {
             <Route exact path="/comics/:id" render={(props) => {
               const id = props.match.params.id;
               const comic = this.findComicById(id);
-              return <ComicDetails comic={comic} />
+              return <ComicDetails comic={comic} user={this.state.currentUser}/>
             }} />
 
             {/* Get all characters */}
