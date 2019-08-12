@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import NavBar from '../NavBar.js';
 import LoginPage from './users/LoginPage';
 import ComicList from '../components/comics/ComicList';
-import ComicDetails from '../components/comics/ComicDetails';
+import ComicDetailContainer from '../components/comics/ComicDetails';
 import PersonaList from '../components/personas/PersonaList';
 import PublisherList from '../components/publishers/PublisherList';
 import ReviewFormContainer from './reviews/ReviewFormContainer';
@@ -20,7 +20,8 @@ class MainContainer extends Component {
       publishers: [],
       users: [],
       reviews: [],
-      currentUser: null
+      currentUser: null,
+      reviewedComic: null
     };
     this.handleUserSelect = this.handleUserSelect.bind(this);
     this.findComicById = this.findComicById.bind(this);
@@ -51,9 +52,7 @@ class MainContainer extends Component {
   }
 
   handleUserSelect(currentUser){
-    this.setState({currentUser}, () => {
-      console.log(this.state.currentUser);
-    })
+    this.setState({currentUser})
   }
 
   findComicById(id){
@@ -88,7 +87,7 @@ class MainContainer extends Component {
             <Route exact path="/comics/:id" render={(props) => {
               const id = props.match.params.id;
               const comic = this.findComicById(id);
-              return <ComicDetails comic={comic} user={this.state.currentUser}/>
+              return <ComicDetailContainer comic={comic} user={this.state.currentUser} handleUserSelect={this.handleUserSelect}/>
             }} />
 
             {/* Get all characters */}

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import LoginComponent from '../../components/users/LoginComponent.js'
 
 class LoginPage extends Component {
-  constructor({props}){
+  constructor(props){
     super(props);
     this.onUserSelected =  this.onUserSelected.bind(this)
   }
