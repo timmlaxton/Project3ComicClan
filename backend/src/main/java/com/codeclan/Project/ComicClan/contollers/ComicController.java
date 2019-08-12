@@ -11,7 +11,7 @@ import com.codeclan.Project.ComicClan.repositories.comics.ComicRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/comics")
+@RequestMapping("comics")
 public class ComicController {
     @Autowired
     ComicRepository comicRepository;
