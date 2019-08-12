@@ -8,6 +8,7 @@ import PersonaList from '../components/personas/PersonaList';
 import PublisherList from '../components/publishers/PublisherList';
 import ReviewFormContainer from './reviews/ReviewFormContainer';
 import Request from '../helpers/request';
+import PersonaDetails from '../components/personas/PersonaDetails'
 
 
 class MainContainer extends Component {
@@ -20,11 +21,19 @@ class MainContainer extends Component {
       publishers: [],
       users: [],
       reviews: [],
+<<<<<<< HEAD
       currentUser: null,
       reviewedComic: null
+=======
+
+
+      currentUser: null
+>>>>>>> develop
     };
     this.handleUserSelect = this.handleUserSelect.bind(this);
+ 
     this.findComicById = this.findComicById.bind(this);
+    this.findCharacterById = this.findCharacterById.bind(this);
   }
 
 
@@ -62,7 +71,15 @@ class MainContainer extends Component {
     return comic;
   }
 
+  findCharacterById(id){
+      const persona = this.state.personas.find((persona) => {
+        return persona.id === parseInt(id)
+      })
+      return persona;
+    }
+
   render(){
+
     return (
     <div>
       <Router>
@@ -94,6 +111,13 @@ class MainContainer extends Component {
             <Route exact path="/characters" render={(props) => {
               return <PersonaList personas={this.state.personas}/>
             }} />
+
+            {/* Get one character */}
+           <Route exact path="/characters/:id" render={(props) => {
+            const id = props.match.params.id;
+            const persona = this.findCharacterById(id);
+            return <PersonaDetails persona={persona} />
+               }} />
 
             {/* Get all publishers */}
             <Route exact path="/publishers" render={(props) => {

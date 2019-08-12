@@ -35,6 +35,9 @@ public class Comic implements Serializable {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "description", length = 1000)
+    private String description;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -63,7 +66,7 @@ public class Comic implements Serializable {
 
 
 
-    public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String image) {
+    public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String image, String description) {
         this.title = title;
         this.writer = writer;
         this.artist = artist;
@@ -75,9 +78,18 @@ public class Comic implements Serializable {
         this.reviews = new ArrayList<Review>();
         this.rating = 0;
         this.image = image;
+        this.description = description;
     }
 
     public Comic() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {

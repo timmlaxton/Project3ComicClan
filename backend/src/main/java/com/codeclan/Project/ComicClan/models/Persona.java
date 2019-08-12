@@ -32,6 +32,10 @@ public class Persona {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "description", length = 1000)
+    private String description;
+
+
     @JsonIgnoreProperties("comics")
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -42,17 +46,26 @@ public class Persona {
     )
     private List<Comic> comics;
 
-    public Persona(String name, String alias, String superPower, String firstAppearance, String image) {
+    public Persona(String name, String alias, String superPower, String firstAppearance, String image, String description) {
         this.name = name;
         this.alias = alias;
         this.superPower = superPower;
         this.firstAppearance = firstAppearance;
         this.comics = new ArrayList<Comic>();
         this.image = image;
+        this.description = description;
     }
 
     public Persona(){
 
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImage() {

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Review from '../reviews/Review'
 import ReviewForm from '../reviews/ReviewForm';
 import Request from '../../helpers/request.js'
+import Descriptions from '../descriptions/Descriptions'
 
 const ComicDetails = (props) => {
   console.log(props);
@@ -16,10 +17,14 @@ const ComicDetails = (props) => {
   console.log(props.user);
   return (
     <div className="comic-component">
-    <h1>Comic Details</h1>
+
+
         <Comic comic={props.comic}/>
         <Review comic={props.comic} user={props.user}/>
         <ReviewForm comic={props.comic} user={props.user} handleReviewPost={handleReviewPost}/>
+        <div className="description-box">
+        <p>{props.comic.description}</p>
+        </div>
     </div>
   )
 
