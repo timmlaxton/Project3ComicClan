@@ -34,6 +34,14 @@
 
 }
 
+.review-box {
+  position: relative;
+  left: -10px;
+  top: 150px;
+
+
+}
+
 ul.component-list {
   list-style: none;
   display: flex;
@@ -43,7 +51,8 @@ ul.component-list {
 
 
 header {
-  position: fixed;
+ position: absolute;
+  z-index: -1;
   background-color: white;
   top: 0;
   left: 0;
@@ -70,6 +79,7 @@ header li {
   display: inline;
 
 
+
 }
 
 body {
@@ -88,4 +98,14 @@ body {
 
 a {
   color: black;
+}
+
+.description-box {
+  position: absolute;
+  margin-left: 400px;
+  bottom: 380px;
+  height: 20vh;
+  width: 50vw;
+  border: 3px solid black;
+  background-color: white;
 }

@@ -11,7 +11,7 @@ class PersonaDetailContainer extends Component {
 
 
   render(){
-    console.log("hi");
+    
     return(
       <div className="character-detail-container">
         <PersonaDetails persona={this.props.persona} />
