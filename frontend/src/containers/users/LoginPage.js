@@ -41,7 +41,7 @@ class LoginPage extends Component {
       return(
         <div>
           <Redirect to={url} user={this.props.user}/>
-          <UserPage user={this.props.user} />
+          <UserPage user={this.props.user} users={this.props.users} comics={this.props.comics}/>
         </div>
       )
     }

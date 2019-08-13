@@ -93,14 +93,14 @@ class MainContainer extends Component {
             {/* Login Page */}
             <Route exact path="/" render={() => {
 
-              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect} user={this.state.currentUser}/>
+              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect} user={this.state.currentUser} users={this.state.users}/>
 
             }} />
 
             {/* Get User Page */}
             <Route exact path="/users/:id" render={(props) => {
-                
-                return <UserPage user={this.state.currentUser} />
+
+                return <UserPage user={this.state.currentUser} users={this.state.users} comics={this.state.comics}/>
             }} />
 
             {/* Get all comics */}
