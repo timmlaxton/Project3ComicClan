@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../NavBar.js';
 import LoginPage from './users/LoginPage';
 import ComicList from '../components/comics/ComicList';
-import ComicDetailContainer from '../components/comics/ComicDetails';
+import ComicDetailContainer from '../containers/comics/ComicDetailContainer';
 import PersonaList from '../components/personas/PersonaList';
 import PublisherList from '../components/publishers/PublisherList';
 import ReviewFormContainer from './reviews/ReviewFormContainer';
@@ -21,12 +21,13 @@ class MainContainer extends Component {
       publishers: [],
       users: [],
       reviews: [],
-      currentUser: null
+      currentUser: null,
+      comic: null
     };
     this.handleUserSelect = this.handleUserSelect.bind(this);
-
     this.findComicById = this.findComicById.bind(this);
     this.findCharacterById = this.findCharacterById.bind(this);
+    this.handleReviewAdded = this.handleReviewAdded.bind(this);
   }
 
 
@@ -34,7 +35,7 @@ class MainContainer extends Component {
     const request = new Request()
 
     const promise1 = request.get('/api/comics');
-    const promise2 = request.get('/api/characters');
+    const promise2 = request.get('/api/personae');
     const promise3 = request.get('/api/publishers');
     const promise4 = request.get('/api/users');
     const promise5 = request.get('/api/reviews')
@@ -42,13 +43,12 @@ class MainContainer extends Component {
     const promises = [promise1, promise2, promise3, promise4, promise5];
 
     Promise.all(promises).then((data) => {
-      console.log(data);
       this.setState({
-        comics: data[0],
-        personas: data[1],
-        publishers: data[2],
-        users: data[3],
-        reviews: data[4]
+        comics: data[0]._embedded.comics,
+        personas: data[1]._embedded.personae,
+        publishers: data[2]._embedded.publishers,
+        users: data[3]._embedded.users,
+        reviews: data[4]._embedded.reviews
       })
     })
   }
@@ -57,11 +57,22 @@ class MainContainer extends Component {
     this.setState({currentUser})
   }
 
+  handleReviewAdded(updatedComic){
+    const index = this.state.comics.indexOf(comic => comic.id === updatedComic.id)
+    const updatedComics = this.state.comics
+    updatedComics[index] = updatedComic
+    this.setState({comics: updatedComics})
+  }
+
   findComicById(id){
-    const comic = this.state.comics.find((comic) => {
-      return comic.id === parseInt(id)
+    // const comic = this.state.comics.find((comic) => {
+    //   return comic.id === parseInt(id)
+    // })
+    const request = new Request()
+    request.get('/api/comics/' + id)
+    .then((data) => {
+      this.setState({comic: data})
     })
-    return comic;
   }
 
   findCharacterById(id){
@@ -97,7 +108,7 @@ class MainContainer extends Component {
             <Route exact path="/comics/:id" render={(props) => {
               const id = props.match.params.id;
               const comic = this.findComicById(id);
-              return <ComicDetailContainer comic={comic} user={this.state.currentUser} handleUserSelect={this.handleUserSelect}/>
+              return <ComicDetailContainer comic={this.state.comic} user={this.state.currentUser} handleUserSelect={this.handleUserSelect} handleReviewAdded={this.handleReviewAdded}/>
             }} />
 
             {/* Get all characters */}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Review = (props) => {
 
-  const reviews = props.comic.reviews.map((review, index) => {
+  const reviews = props.comic._embedded.reviews.map((review, index) => {
     return <li key={index}>"{review.review}" -  left by: {review.user.alias}</li>
   })
 

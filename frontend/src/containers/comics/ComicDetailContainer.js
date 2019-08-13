@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Comic from './Comic';
 import ComicDetails from '../../components/comics/ComicDetails';
-import Review from '../reviews/Review'
 import ReviewForm from '../../components/reviews/ReviewForm';
+import {Redirect} from 'react-router'
+import Request from '../../helpers/request.js'
 
 class ComicDetailContainer extends Component {
   constructor(props){
@@ -13,24 +13,36 @@ class ComicDetailContainer extends Component {
       this.userReviewPost = this.userReviewPost.bind(this)
   }
 
-  userReviewPost(review, comic){
+  componentDidMount(){
+    console.log(this.props);
+  }
+
+  userReviewPost(review){
     const request = new Request()
-    request.post('api/reviews', review).then(() => {
-      this.setState({redirect: true})
+    console.log(review);
+    request.post('/api/reviews', review).then(() => {
+      // this.setState({redirect: true})
+      const updatedComic = this.props.comic;
+      updatedComic._embedded.reviews.push(review)
+      this.props.handleReviewAdded(updatedComic)
     })
   }
 
   render(){
     const {redirect} = this.state
     if (redirect){
-      const url = 'api/comics/' + 2
-      return<Redirect to={url}/>
-    }
+      return(
+        <div className="comic-detail-container">
+          <ComicDetails comic={this.props.comic} user={this.props.user} userReviewPost={this.userReviewPost} handleUserSelect={this.handleUserSelect} />
+        </div>
+      )
+    }else{
     return(
       <div className="comic-detail-container">
-        <ComicDetails comic={comic} user={this.state.currentUser} userReviewPost={this.userReviewPost} handleUserSelect={this.handleUserSelect} />
+        <ComicDetails comic={this.props.comic} user={this.props.user} userReviewPost={this.userReviewPost} handleUserSelect={this.handleUserSelect} />
       </div>
     )
+  }
   }
 
 
