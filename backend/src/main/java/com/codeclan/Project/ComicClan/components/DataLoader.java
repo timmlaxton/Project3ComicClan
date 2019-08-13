@@ -48,7 +48,7 @@ public class DataLoader implements ApplicationRunner {
         Publisher publisher3 = new Publisher("Image", "/images/Images/Publisher/ImageLogo.jpg");
         publisherRepository.save(publisher3);
 
-        Publisher publisher4 = new Publisher("Darkhorse", "/images/Images/Publisher/DCLogo.jpg");
+        Publisher publisher4 = new Publisher("Darkhorse", "/images/Images/Publisher/DarkHorseLogo.jpg");
         publisherRepository.save(publisher4);
 
         Publisher publisher5 = new Publisher("Vertigo", "/images/Images/Publisher/VertigoLogo.jpg");
@@ -72,7 +72,7 @@ public class DataLoader implements ApplicationRunner {
         Comic comic1 = new Comic(" X-men: House of X", "Jonathan Hickman", "Leinil Francis Yu", "Marte Gracia", "Clayton Cowels", publisher1, "Superhero", "/images/Images/Comics/X-men.jpg", "FACE THE FUTURE. Superstar writer Jonathan Hickman (SECRET WARS, AVENGERS, FANTASTIC FOUR) takes the reins of the X-Men universe! Since the release of Uncanny X-Men #1, there have been four seminal moments in the history of the X-Men. Giant-Sized X-Men. X-Men. Age of Apocalypse. New X-Men. Four iconic series that introduced a new era for Marvel’s mutants and revolutionized the X-Men. In House of X, Charles Xavier reveals his master plan for mutantkind…one that will bring mutants out of the shadow of mankind and into the light once more.");
         comicRepository.save(comic1);
 
-        Persona persona1 = new Persona("Cyclops", "Scott summers", "Lazer Beams", "Comic", "/images/Images/Persona/cyclops.jpg", "The first X-Man, Scott Summers possesses the mutant ability to draw ambient energy from another dimension through his eyes which are actually portals to the dimension, he usually channels this energy into concussive force blasts. He is visually distinctive for the ruby quartz visor he wears to control his devastating power. A born leader, Cyclops succeeded his mentor Professor X to command the X-Men.");
+        Persona persona1 = new Persona("Cyclops", "Scott summers", "Lazer Beams", "Comic", "/images/Images/Persona/Whyclops.jpg", "The first X-Man, Scott Summers possesses the mutant ability to draw ambient energy from another dimension through his eyes which are actually portals to the dimension, he usually channels this energy into concussive force blasts. He is visually distinctive for the ruby quartz visor he wears to control his devastating power. A born leader, Cyclops succeeded his mentor Professor X to command the X-Men.");
         personaRepository.save(persona1);
         User user1 = new User("Tim", "Comic Dude");
         userRepository.save(user1);
@@ -134,6 +134,10 @@ public class DataLoader implements ApplicationRunner {
         Comic comic19 = new Comic("Love and Rockets", "Jaimie Hernandez", "Gilbert Hernandez", "Mario Hernandez", "Jaimie Hernandez", publisher10, "Alternative", "/images/Images/Comics/Loveandrockets.jpg", "Love and Rockets (often abbreviated L&R) is a comic book series by the Hernandez brothers: Gilbert, Jaime, and Mario. It was one of the first comic books in the alternative comics movement of the 1980s. The Hernandez brothers produced stories in the series independently of each other. Gilbert and Jaime produced the majority of the material, and tended to focus on particular casts of characters and settings. Those of Gilbert usually focused on a cast of characters in the fictional Central American village of Palomar; the stories often featured magic realist elements. The Locas stories of Jaime centered on a social group in Los Angeles, particularly the Latin-American friends and sometimes-lovers Maggie and Hopey.");
         comicRepository.save(comic19);
 
+        Comic comic20 = new Comic("Akira", "Katsuhiro Otomo", "Katsuhiro Otomo ", "Steve Oliff", "Katsuhiro Otomo", publisher4, "Sci-Fi", "/images/Images/Comics/Akira.jpg", "In 1988 the Japanese government drops an atomic bomb on Tokyo after ESP experiments on children go awry. In 2019, 31 years after the nuking of the city, Kaneda, a bike gang leader, tries to save his friend Tetsuo from a secret government project. He battles anti-government activists, greedy politicians, irresponsible scientists and a powerful military leader until Tetsuo's supernatural powers suddenly manifest. A final battle is fought in Tokyo Olympiad exposing the experiment's secrets.");
+        comicRepository.save(comic20);
+
+
         Date date1 = new Date(2019, 8, 10, 10, 40);
         Review review1 = new Review(date1, "This comic is awesome!", 3, comic1, user1);
         reviewRepository.save(review1);
@@ -145,14 +149,68 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        Persona persona2 = new Persona("Superman", "Clark Kent", "Superhuman", "Action Comics #1", "/images/Images/Persona/Superman.jpg", "Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America's heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and the American way!");
+        Persona persona2 = new Persona("Superman", "Clark Kent", "Superhuman", "Action Comics #1", "/images/Images/Persona/Juperman.jpg", "Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America's heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and the American way!");
         personaRepository.save(persona2);
 
-        Persona persona3 = new Persona("Incredible Hulk", "Bruce Banner", "Mental Rage", "The Incredible Hulk #1", "/images/Images/Persona/hulk.jpg","After being bombarded with a massive dose of gamma radiation while saving a young man's life during the testing of an experimental bomb, Dr. Robert Bruce Banner was transformed into the Incredible Hulk: a green behemoth who is the living personification of rage and pure physical strength." );
+        Persona persona3 = new Persona("Incredible Hulk", "Bruce Banner", "Mental Rage", "The Incredible Hulk #1", "/images/Images/Persona/Sulk.jpg","After being bombarded with a massive dose of gamma radiation while saving a young man's life during the testing of an experimental bomb, Dr. Robert Bruce Banner was transformed into the Incredible Hulk: a green behemoth who is the living personification of rage and pure physical strength." );
         personaRepository.save(persona3);
 
-        Persona persona4 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/batman.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        Persona persona4 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Matban.jpg", "Scott Lang was a thief who became Ant-Man after stealing the Ant-Man suit to save his daughter Cassandra  Lang from a heart condition.[5] Reforming from his life of crime, Lang soon took on a full-time career as Ant-Man with the encouragement of Hank Pym.[6] He became an affiliate of the Fantastic Four,[7] and later became a full-time member of the Avengers." );
         personaRepository.save(persona4);
+
+        Persona persona5 = new Persona("Ant-Man", "Scott Lang", "Teeny Tiny", "The Avengers #181", "/images/Images/Persona/Anty.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona5);
+
+        Persona persona6 = new Persona("Bullseye", "Benjamin Dex Poindexter", "Handy at throwing things", "DareDevil #131", "/images/Images/Persona/Bullseye.jpg", "Bullseye first achieved notoriety with a series of extortion attempts and murder in New York City, publicizing his antics by agreeing to an interview with the Daily Bugle[10]. Bullseye fought and defeated Daredevil, although the hero soon tracked him down and prevented Bullseye's extortion schemes. Bullseye was then hired to murder the lawyer Matt Murdock, Daredevil's secret identity, but was defeated by Daredevil. In his own mind, Bullseye believed his formidable reputation was ruined and swore vengeance. Bullseye fought Daredevil at any opportunity, holding a TV studio hostage, kidnapping the Black Widow,[13] or simply tracking him down. Each time, he was captured and given over to the police by Daredevil. At one point, Bullseye was declared insane due to a brain tumor and began hallucinating, believing random people were actually Daredevil, and trying to kill them all. The true Daredevil managed to defeat him, and the tumor was removed." );
+        personaRepository.save(persona6);
+
+        Persona persona7 = new Persona("CatWoman", "Selina Kyle", "Picks Pockets", "Batman #1", "/images/Images/Persona/Catwoman.jpg", "Catwoman is a fictional character created by Bill Finger and Bob Kane who appears in American comic books published by DC Comics, commonly in association with superhero Batman. The character made her debut as \"the Cat\" in Batman #1 (Spring 1940), and her real name is Selina Kyle. She is Batman's most enduring love interest and is known for her complex love-hate relationship with him." );
+        personaRepository.save(persona7);
+
+        Persona persona8 = new Persona("DareDevil", "Matt Murdoch", "Canny see", "DareDevil #1", "/images/Images/Persona/DareDevil.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona8);
+
+        Persona persona9 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/DrOctopus.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona9);
+
+        Persona persona10 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/DrStrange.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona10);
+
+        Persona persona11 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Elektra.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona11);
+
+        Persona persona12 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/MistyKnight.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona12);
+
+        Persona persona13 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/MistyKnight.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona13);
+
+        Persona persona14 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Spiderman.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona14);
+
+        Persona persona15 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Thor.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona15);
+
+        Persona persona16 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Vulture.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona16);
+
+        Persona persona17 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/WonderWoman.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona17);
+
+        Persona persona18 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Matban.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona18);
+
+        Persona persona19 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Matban.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona19);
+
+        Persona persona20 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Matban.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona20);
+
+        Persona persona21 = new Persona("Batman", "Bruce Wayne", "Hunners of money", "Warrior #1", "/images/Images/Persona/Matban.jpg", "Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary Batman." );
+        personaRepository.save(persona21);
+
+
+
 
 
 

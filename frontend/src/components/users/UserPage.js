@@ -6,6 +6,7 @@ const UserPage = (props) => {
   return (
     <div className="user-page">
       <h1>Hey, {props.user.alias}!</h1>
+      <h1>What would you like do?</h1>
       <div className="user-choices">
         <Link to={'/comics'}><h1>Comics</h1></Link>
       </div>
