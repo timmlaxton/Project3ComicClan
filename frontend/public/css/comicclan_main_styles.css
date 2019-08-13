@@ -65,8 +65,10 @@ ul.component-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+}
 
-
+ul {
+  list-style: none;
 }
 
 

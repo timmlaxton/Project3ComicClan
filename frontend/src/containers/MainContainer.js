@@ -29,6 +29,7 @@ class MainContainer extends Component {
     this.findComicById = this.findComicById.bind(this);
     this.findCharacterById = this.findCharacterById.bind(this);
     this.findUserById = this.findUserById.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
 
@@ -80,6 +81,14 @@ class MainContainer extends Component {
       return user;
     }
 
+    handleDelete(id){
+      const request = new Request()
+      const url = '/api/users/' + this.state.currentUser.id;
+      request.delete(url).then(() => {
+        window.location = '/';
+      })
+     }
+
   render(){
 
     return (
@@ -100,7 +109,7 @@ class MainContainer extends Component {
             {/* Get User Page */}
             <Route exact path="/users/:id" render={(props) => {
 
-                return <UserPage user={this.state.currentUser} users={this.state.users} comics={this.state.comics}/>
+                return <UserPage user={this.state.currentUser} users={this.state.users} comics={this.state.comics} onDelete={this.handleDelete}/>
             }} />
 
             {/* Get all comics */}
