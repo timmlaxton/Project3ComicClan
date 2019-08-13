@@ -23,16 +23,20 @@ class LoginPage extends Component {
 
   handleNewUserPost(newUser){
     const request = new Request();
-    request.post('api/users', newUser).then(() => {
+    request.post('api/users', newUser)
+    .then(res => res.json())
+    .then(dbUser => this.onUserSelected(dbUser))
+    // .then(newUser => console.log(newUser))
       //.then and get the response from our backend
-      // const newRequest = new Request();
-      // console.log(newRequest);
+
+
       //we should be able to pluck an id off that response
+
       //add the id to newUser
-    })
+
 
     //THEN this.onUserSelected(newUser)
-    this.onUserSelected(newUser)
+
 
   }
 
