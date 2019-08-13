@@ -188,10 +188,6 @@ public class Comic implements Serializable {
         this.rating = rating;
     }
 
-    public void setPersonas(List<Persona> personas) {
-        this.personas = personas;
-    }
-
     public void addPersona(Persona persona) {
         this.personas.add(persona);
     }

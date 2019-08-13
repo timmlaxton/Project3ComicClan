@@ -9,6 +9,7 @@ import PublisherList from '../components/publishers/PublisherList';
 import ReviewFormContainer from './reviews/ReviewFormContainer';
 import Request from '../helpers/request';
 import PersonaDetails from '../components/personas/PersonaDetails'
+import UserPage from '../components/users/UserPage'
 
 
 class MainContainer extends Component {
@@ -82,6 +83,13 @@ class MainContainer extends Component {
       return persona;
     }
 
+    findUserById(id){
+      const user = this.state.users.find((user) => {
+        return user.id === parseInt(id)
+      })
+      return user;
+    }
+
   render(){
 
     return (
@@ -95,8 +103,14 @@ class MainContainer extends Component {
             {/* Login Page */}
             <Route exact path="/" render={() => {
 
-              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect}/>
+              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect} user={this.state.currentUser}/>
 
+            }} />
+
+            {/* Get User Page */}
+            <Route exact path="/users/:id" render={(props) => {
+
+                return <UserPage user={this.state.currentUser} />
             }} />
 
             {/* Get all comics */}

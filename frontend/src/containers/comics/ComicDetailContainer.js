@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ComicDetails from '../../components/comics/ComicDetails';
 import ReviewForm from '../../components/reviews/ReviewForm';
-import {Redirect} from 'react-router'
 import Request from '../../helpers/request.js'
 
 class ComicDetailContainer extends Component {
