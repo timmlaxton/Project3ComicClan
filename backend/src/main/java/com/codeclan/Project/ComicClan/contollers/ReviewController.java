@@ -1,8 +1,7 @@
 package com.codeclan.Project.ComicClan.contollers;
 
-
-import com.codeclan.Project.ComicClan.models.Persona;
-import com.codeclan.Project.ComicClan.repositories.personas.PersonaRepository;
+import com.codeclan.Project.ComicClan.models.Review;
+import com.codeclan.Project.ComicClan.repositories.reviews.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("characters")
-public class PersonaController {
+@RequestMapping("reviews")
+public class ReviewController {
+
     @Autowired
-    PersonaRepository personaRepository;
+    ReviewRepository reviewRepository;
 
     @GetMapping
-    public List<Persona> getAllPersonas(){
-        return personaRepository.findAll();
-    }
+    public List<Review> getAllReviews(){ return reviewRepository.findAll();}
+
 }

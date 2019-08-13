@@ -3,6 +3,7 @@ import Comic from './Comic';
 import ComicDetails from '../../components/comics/ComicDetails';
 import Review from '../reviews/Review'
 import ReviewForm from '../../components/reviews/ReviewForm';
+import Request from '../../helpers/request.js';
 
 class ComicDetailContainer extends Component {
   constructor(props){

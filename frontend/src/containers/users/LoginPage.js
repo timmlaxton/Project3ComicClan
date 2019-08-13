@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import LoginComponent from '../../components/users/LoginComponent.js'
-import NewUserForm from '../../components/users/NewUserForm.js'
+import LoginComponent from '../../components/users/LoginComponent.js';
+import NewUserForm from '../../components/users/NewUserForm.js';
+import Request from '../../helpers/request';
 
 class LoginPage extends Component {
   constructor(props){
@@ -15,9 +16,9 @@ class LoginPage extends Component {
 
   handleNewUserPost(newUser){
     const request = new Request();
-    request.post('api/users', newUser).then(() => {
-        
-    })
+    request.post('api/users', newUser)
+    this.onUserSelected(newUser)
+
   }
 
   render(){
