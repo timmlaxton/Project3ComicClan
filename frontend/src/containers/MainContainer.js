@@ -112,7 +112,7 @@ class MainContainer extends Component {
 
             {/* Edit a user */}
             <Route exact path="/users/edit/:id" render={(props) => {
-              return <UserEditFormContainer user={this.state.currentUser}/>
+              return <UserEditFormContainer user={this.state.currentUser} handleUserSelect={this.handleUserSelect}/>
             }} />
 
             {/* Get all comics */}
