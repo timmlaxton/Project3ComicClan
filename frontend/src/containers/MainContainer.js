@@ -10,6 +10,7 @@ import ReviewFormContainer from './reviews/ReviewFormContainer';
 import Request from '../helpers/request';
 import PersonaDetails from '../components/personas/PersonaDetails'
 import UserPage from '../components/users/UserPage'
+import UserEditFormContainer from './users/UserEditFormContainer';
 
 
 class MainContainer extends Component {
@@ -101,15 +102,17 @@ class MainContainer extends Component {
           <Switch>
             {/* Login Page */}
             <Route exact path="/" render={() => {
-
               return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect} user={this.state.currentUser} users={this.state.users}/>
-
             }} />
 
             {/* Get User Page */}
             <Route exact path="/users/:id" render={(props) => {
+              return <UserPage user={this.state.currentUser} users={this.state.users} comics={this.state.comics} onDelete={this.handleDelete}/>
+            }} />
 
-                return <UserPage user={this.state.currentUser} users={this.state.users} comics={this.state.comics} onDelete={this.handleDelete}/>
+            {/* Edit a user */}
+            <Route exact path="/users/edit/:id" render={(props) => {
+              return <UserEditFormContainer user={this.state.currentUser}/>
             }} />
 
             {/* Get all comics */}

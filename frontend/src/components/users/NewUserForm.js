@@ -7,8 +7,8 @@ const NewUserForm = (props) => {
     const newUser = {
       "name": event.target.name.value,
       "alias": event.target.alias.value,
-      "comics": [],
-      "reviews": []
+      "comics": null,
+      "reviews": null
     }
     console.log(newUser);
     props.handleNewUserPost(newUser);
