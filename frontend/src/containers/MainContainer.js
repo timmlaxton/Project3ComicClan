@@ -28,6 +28,7 @@ class MainContainer extends Component {
 
     this.findComicById = this.findComicById.bind(this);
     this.findCharacterById = this.findCharacterById.bind(this);
+    this.findUserById = this.findUserById.bind(this);
   }
 
 
@@ -72,6 +73,13 @@ class MainContainer extends Component {
       return persona;
     }
 
+    findUserById(id){
+      const user = this.state.users.find((user) => {
+        return user.id === parseInt(id)
+      })
+      return user;
+    }
+
   render(){
 
     return (
@@ -85,12 +93,13 @@ class MainContainer extends Component {
             {/* Login Page */}
             <Route exact path="/" render={() => {
 
-              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect}/>
+              return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect} user={this.state.currentUser}/>
 
             }} />
 
             {/* Get User Page */}
             <Route exact path="/users/:id" render={(props) => {
+                
                 return <UserPage user={this.state.currentUser} />
             }} />
 
