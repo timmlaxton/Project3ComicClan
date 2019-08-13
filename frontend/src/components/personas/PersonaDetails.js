@@ -13,7 +13,7 @@ const PersonaDetails = (props) => {
   return (
     <div className="persona-component">
       <Persona persona={props.persona}/>
-      <div className="description-box">
+      <div className="characterdescription-box">
       <p>{props.persona.description}</p>
       </div>
 

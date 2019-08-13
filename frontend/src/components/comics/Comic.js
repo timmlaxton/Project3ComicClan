@@ -22,9 +22,8 @@ const Comic = (props) => {
 
 
 
-
-      <p>Writer: {props.comic.writer}</p>
       <p> Title: {props.comic.title}</p>
+      <p>Writer: {props.comic.writer}</p>
       <p>Letterer: {props.comic.letterer}</p>
       <p>Artist: {props.comic.artist}</p>
       <p>Colourer: {props.comic.colourer}</p>

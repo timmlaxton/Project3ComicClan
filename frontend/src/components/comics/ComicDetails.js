@@ -27,7 +27,7 @@ const ComicDetails = (props) => {
         <Comic comic={props.comic}/>
         <Review comic={props.comic}/>
         <ReviewForm comic={props.comic} />
-        <div className="description-box">
+        <div className="comicdescription-box">
         <p>{props.comic.description}</p>
         </div>
 
