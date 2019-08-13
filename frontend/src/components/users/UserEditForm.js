@@ -12,6 +12,7 @@ const UserEditForm = (props) => {
       "comics": null,
       "reviews": null
     }
+    console.log(updateUser);
     props.handleUserUpdate(updateUser);
 
   }

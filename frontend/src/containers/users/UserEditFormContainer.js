@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import UserEditForm from '../../components/users/UserEditForm';
+import Request from '../../helpers/request';
 
 class UserEditFormContainer extends Component {
 
@@ -12,8 +13,10 @@ class UserEditFormContainer extends Component {
   handleUserUpdate(updateUser){
     const request = new Request();
     request.patch('/api/users/' + this.props.user.id, updateUser).then(() => {
-      window.location = '/users/' + this.props.user.id
+      window.location = '/'
     })
+    // .then(res => res.json())
+    // .then(dbUpdatedUser => this.onUserSelected(dbUser))
   }
 
   render(){
