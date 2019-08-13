@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/reviews")
+@RequestMapping("reviews")
 public class ReviewController {
 
     @Autowired
     ReviewRepository reviewRepository;
 
     @GetMapping
-    public List<Review> getAllReviews() {return reviewRepository.findAll();}
+    public List<Review> getAllReviews(){ return reviewRepository.findAll();}
+
 }

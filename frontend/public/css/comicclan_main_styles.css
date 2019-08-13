@@ -114,7 +114,7 @@ body {
 
 
 .login {
-  color: lightblue;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,6 +124,7 @@ body {
 
 a {
   color: black;
+  text-decoration: none;
 }
 
 .comicdescription-box {
@@ -172,3 +173,26 @@ a {
   top: 300vw;
   left: 800px;
 } */
+
+.new-user-form {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-choices {
+    border: 3px solid black;
+    margin: 30px;
+    height: 10vh;
+    width: 30vw;
+    text-align: center;
+}
