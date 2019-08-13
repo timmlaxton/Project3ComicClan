@@ -2,19 +2,28 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const UserPage = (props) => {
+console.log(props);
+console.log(props.user);
 
+const userComics = props.user.comics
 
-  // if(props.user.comics) {
-  //   var favouriteComics = props.user.comics.map((comic, index) => {
-  //     return (
-  //       <li key={index} className="favorite-comic">
-  //         <img src={comic.image} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />
-  //       </li>
-  //       )
-  //     })} else {
-  //       var favouriteComics = "You have no favourite comics yet!"
-  //       return <li>{favouriteComics}</li>
-  //     }
+function comicList(userComics){
+
+  if(userComics) {
+    console.log(userComics);
+      userComics.map((comic, index) => {
+        console.log(comic.image);
+      return (
+        <li key={index} className="favourite-comic">
+          <img src={comic.image} Transformation height="300" width="300" crop="fill" effect="sepia" radius="20" />
+        </li>
+        )
+      })
+    } else {
+        return <li className="favourite-comic">"You have no favourite comics yet!"</li>
+      }
+
+    }
 
 
   const handleDelete = () => {
@@ -34,7 +43,9 @@ const UserPage = (props) => {
         <Link to={'/publishers'}><h1>Publishers</h1></Link>
       </div>
       <h2>Favourite Comics:</h2>
-
+      <ul>
+        {comicList(userComics)}
+      </ul>
       <button onClick={handleDelete}>Delete Your Profile</button>
     </div>
   )
