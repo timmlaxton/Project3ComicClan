@@ -8,8 +8,8 @@ import org.springframework.data.rest.core.config.Projection;
 
 import java.util.List;
 
-@Projection(name = "embedPublisher", types = Comic.class)
-public interface EmbedPublisher {
+@Projection(name = "embedComics", types = Comic.class)
+public interface EmbedComics {
     long getId();
     String getTitle();
     String getDescription();

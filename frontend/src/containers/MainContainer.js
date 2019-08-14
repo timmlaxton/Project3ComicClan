@@ -104,7 +104,6 @@ class MainContainer extends Component {
             <Route exact path="/" render={() => {
 
               return <LoginPage users={this.state.users} handleUserSelect={this.handleUserSelect} user={this.state.currentUser}/>
-
             }} />
 
             {/* Get User Page */}
