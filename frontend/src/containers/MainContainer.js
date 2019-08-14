@@ -29,12 +29,12 @@ class MainContainer extends Component {
     this.handleUserSelect = this.handleUserSelect.bind(this);
     this.findComicById = this.findComicById.bind(this);
     this.findCharacterById = this.findCharacterById.bind(this);
-<<<<<<< HEAD
+
     this.findUserById = this.findUserById.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-=======
+
     this.handleReviewAdded = this.handleReviewAdded.bind(this);
->>>>>>> develop
+
   }
 
 
