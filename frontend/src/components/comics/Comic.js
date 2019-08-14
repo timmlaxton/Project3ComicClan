@@ -11,6 +11,8 @@ const Comic = (props) => {
 
 
   const url = "/comics/" + props.comic.id;
+  const publisherUrl = props.comic._links.publisher.href;
+  const publisherName = props.comic._links.publisher.name;
 
   return (
     <React.Fragment>
@@ -27,7 +29,7 @@ const Comic = (props) => {
       <p>Letterer: {props.comic.letterer}</p>
       <p>Artist: {props.comic.artist}</p>
       <p>Colourer: {props.comic.colourer}</p>
-      <p>Publisher: {props.comic.publisher.name}</p>
+      <p>Publisher: {props.comic._embedded.publisher.name}</p>
     </React.Fragment>
   )
 
