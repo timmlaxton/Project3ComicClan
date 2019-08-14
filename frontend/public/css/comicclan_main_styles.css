@@ -40,7 +40,7 @@
   width: 300px;
   background-color: white;
   font-family: 'Amatic SC';
-
+  font-size: 35px;
 }
 
 .component_item {
@@ -155,7 +155,7 @@ a {
   position: absolute;
   margin-left: 400px;
   margin-right: 100px;
-  top: 160px;
+  top: 200px;
   /* height: 60vh;
   width: 50vw; */
   border: 3px solid black;
