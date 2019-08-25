@@ -71,10 +71,6 @@ public class Review {
         this.review = review;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
     public double getRating() {
         return rating;
     }
