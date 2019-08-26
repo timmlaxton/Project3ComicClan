@@ -12,8 +12,8 @@ const ReviewForm = (props) => {
       "review": event.target.review.value,
       "rating": event.target.rating.value,
       "date": null,
-      "comic": props.comic,
-      "user": props.user
+      "comic": "http://localhost:8080/api/comics/" + props.comic.id,
+      "user": "http://localhost:8080/api/users/" + props.user.id
     }
     props.handleReviewPost(review);
   }
