@@ -9,24 +9,16 @@ const Comic = (props) => {
   const url = "/comics/" + props.comic.id;
   const publisherUrl = props.comic._links.publisher.href;
   const publisherName = props.comic._links.publisher.name;
-  console.log(props.comic._embedded.reviews);
+  let avgRating = null;
   if(props.comic._embedded.reviews){
-    var total = 0;
+    let total = 0;
     for(const review of props.comic._embedded.reviews){
     total += review.rating
     }
-  console.log(total);
-  var avgRating = total / props.comic._embedded.reviews.length
+  avgRating = total / props.comic._embedded.reviews.length
   }else{
     avgRating = "No Reviews yet. :("
   }
-  // double total = 0;
-  //   for (int i = 0; i < this.getReviewsAmount(); i++) {
-  //       total += this.reviews.get(i).getRating();
-  //   }
-  //   double averageRating = total / this.getReviewsAmount();
-  //   this.rating = average
-
 
   return (
     <React.Fragment>
