@@ -19,7 +19,9 @@ class ComicDetailContainer extends Component {
 
     request.post('/api/reviews', review).then(() => {
       const updatedComic = this.props.comic;
-      updatedComic._embedded.reviews.push(review)
+      if(updatedComic._embedded.reviews){
+        updatedComic._embedded.reviews.push(review)
+      }
       this.props.handleReviewAdded(updatedComic)
     })
   }
