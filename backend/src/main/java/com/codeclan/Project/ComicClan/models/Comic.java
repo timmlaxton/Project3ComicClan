@@ -35,6 +35,9 @@ public class Comic implements Serializable {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "rating")
+    private double rating;
+
     @Column(name = "description", length = 1000)
     private String description;
 
@@ -61,11 +64,6 @@ public class Comic implements Serializable {
     @OneToMany(mappedBy = "comic", fetch = FetchType.LAZY)
     private List<Review> reviews;
 
-    @Column(name = "ratings")
-    private double rating;
-
-
-
     public Comic(String title, String writer, String artist, String colourer, String letterer, Publisher publisher, String genre, String image, String description) {
         this.title = title;
         this.writer = writer;
@@ -76,7 +74,7 @@ public class Comic implements Serializable {
         this.genre = genre;
         this.personas = new ArrayList<Persona>();
         this.reviews = new ArrayList<Review>();
-        this.rating = 0;
+        this.rating = rating;
         this.image = image;
         this.description = description;
     }
@@ -204,9 +202,8 @@ public class Comic implements Serializable {
         double total = 0;
         for (int i = 0; i < this.getReviewsAmount(); i++) {
             total += this.reviews.get(i).getRating();
-            double averageRating = total / this.getReviewsAmount();
-            this.rating = averageRating;
         }
-
+        double averageRating = total / this.getReviewsAmount();
+        this.rating = averageRating;
     }
 }
