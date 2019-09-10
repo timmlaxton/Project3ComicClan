@@ -4,8 +4,7 @@ const Review = (props) => {
   if(!props.comic._embedded.reviews){
     return(
       <>
-      <p>No Reviews yet :(</p>
-      <p>Be the first?</p>
+      <p>Be the first to review?</p>
       </>
     )
   }
