@@ -1,18 +1,24 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
-
 const Comic = (props) => {
 
   if(!props.comic){
     return "Loading...comic"
   }
-
-
-
   const url = "/comics/" + props.comic.id;
   const publisherUrl = props.comic._links.publisher.href;
   const publisherName = props.comic._links.publisher.name;
+  let avgRating = null;
+  if(props.comic._embedded.reviews){
+    let total = 0;
+    for(const review of props.comic._embedded.reviews){
+    total += review.rating
+    }
+  avgRating = total / props.comic._embedded.reviews.length
+  }else{
+    avgRating = "No Reviews yet. :("
+  }
 
   return (
     <React.Fragment>
@@ -30,6 +36,7 @@ const Comic = (props) => {
       <p>Artist: {props.comic.artist}</p>
       <p>Colourer: {props.comic.colourer}</p>
       <p>Publisher: {props.comic._embedded.publisher.name}</p>
+      <p>Rating: {avgRating}</p>
     </React.Fragment>
   )
 

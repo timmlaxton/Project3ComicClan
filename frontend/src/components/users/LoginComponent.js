@@ -24,6 +24,8 @@ const LoginComponent = (props) => {
           <select name="user">
             {options}
           </select>
+          <br/>
+          <br/>
           <button type="submit">Login!</button>
         </form>
     </div>

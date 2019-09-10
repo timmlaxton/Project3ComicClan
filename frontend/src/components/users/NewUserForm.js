@@ -20,7 +20,9 @@ const NewUserForm = (props) => {
     <br/>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Name" name="name" />
+        <br/>
         <input type="text" placeholder="Alias" name="alias" />
+        <br/>
         <button type="submit">Register!</button>
       </form>
     </div>

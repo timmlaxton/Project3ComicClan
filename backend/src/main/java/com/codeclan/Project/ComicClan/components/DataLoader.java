@@ -80,6 +80,17 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user1);
 
 
+
+        Date date1 = new Date(2019, 8, 10, 10, 40);
+        Review review1 = new Review(date1, "This comic is awesome!", 4, comic1, user1);
+        reviewRepository.save(review1);
+        comicRepository.save(comic1);
+
+        Date date2 = new Date(2019, 8, 11, 10, 05);
+        Review review2 = new Review(date2, "Seriously, read this comic!", 5, comic1, user1);
+        reviewRepository.save(review2);
+        comicRepository.save(comic1);
+
         Comic comic2 = new Comic("Hard Boiled", "Frank Miller", "Geof Darrow", "Claude Legris", "John Workman", publisher4, "Sci-fi", "/images/Images/Comics/HardBoiled.jpg", "Carl Seltz is a suburban insurance investigator, a loving husband, and devoted father. Nixon is a berserk, homicidal tax collector racking up mind-boggling body counts in a diseased urban slaughterhouse. Unit Four is the ultimate robot killing machine and the last hope of the future's enslaved mechanical servants. And they're all the same psychotic entity.");
         comicRepository.save(comic2);
 
@@ -89,7 +100,7 @@ public class DataLoader implements ApplicationRunner {
         Comic comic4 = new Comic("Criminal", "Ed Brubaker", "Shaun Phillips", "Jacob Phillips", "Sean Phillips", publisher3, "Crime", "/images/Images/Comics/Criminal.jpg", "The series' story arcs are self-contained and focus on different characters, but these central characters inhabit the same world, grew up in fictional Center City, frequent the same bar, and share a common history of two generations of crime. With his partner Ivan, Tommy Patterson ran the city's most proficient crew of pickpockets and taught the trade to his eight-year-old son, Leo. When Tommy was arrested and imprisoned for the murder of Teeg Lawless, Ivan took care of Leo and explained to him how following certain rules can keep a criminal \"out in the world,\" out of both prison and the morgue.");
         comicRepository.save(comic4);
 
-        Comic comic5 = new Comic("Gidon Falls", "Jeff Lamiere", "Andrea Sorrentino", "Dave Stewart", "Steve Wands", publisher3, "Horror", "/images/Images/Comics/GideonFalls.jpg", "A brand-new ongoing series from the acclaimed bestselling creative team of Old Man Logan and Green Arrow! The lives of a reclusive young man obsessed with a conspiracy in the city's trash, and a washed-up Catholic priest arriving in a small town full of dark secrets, become intertwined around the mysterious legend of The Black Barn, an otherworldly building that is alleged to have appeared in both the city and the small town, throughout history, bringing death and madness in its wake. Rural mystery and urban horror collide in this character-driven meditation on obsession, mental illness, and faith.");
+        Comic comic5 = new Comic("Gideon Falls", "Jeff Lamiere", "Andrea Sorrentino", "Dave Stewart", "Steve Wands", publisher3, "Horror", "/images/Images/Comics/GideonFalls.jpg", "A brand-new ongoing series from the acclaimed bestselling creative team of Old Man Logan and Green Arrow! The lives of a reclusive young man obsessed with a conspiracy in the city's trash, and a washed-up Catholic priest arriving in a small town full of dark secrets, become intertwined around the mysterious legend of The Black Barn, an otherworldly building that is alleged to have appeared in both the city and the small town, throughout history, bringing death and madness in its wake. Rural mystery and urban horror collide in this character-driven meditation on obsession, mental illness, and faith.");
         comicRepository.save(comic5);
 
         Comic comic6 = new Comic("V for Vendetta", "Alan Moore", "David Lloyd", "David Lloyd", "Jenny O’Connor", publisher5, "Political Thriller", "/images/Images/Comics/VforVendetta.jpg", "In a world without political freedom or personal freedom, and precious little faith in anything, comes a mysterious man in a white porcelain mask who fights political oppressors through terrorism and seemingly absurd acts. It's a gripping tale of the blurred lines between ideological good and evil.");
@@ -184,19 +195,6 @@ public class DataLoader implements ApplicationRunner {
 
         Comic comic36 = new Comic("Sensation Comics#1", "Harry G Peter", "Jon L Blummer ", "Jenson Myers", "Nevel Jenkins", publisher2, "Superhero", "/images/Images/Comics/WWFA.jpg", "Wonder Woman was introduced in All Star Comics #8 (December 1941), during the era known to comics historians as the Golden Age of Comic Books. Following this debut, she was featured in Sensation Comics #1 (January 1942), and six months later appeared in her own comic book series (Summer 1942).[3][2] Wonder Woman took her place beside the extant superheroines or antiheroes Fantomah, Black Widow, Invisible Scarlet O'Neil, and Canada's Nelvana of the Northern Lights.");
         comicRepository.save(comic36);
-
-
-
-        Date date1 = new Date(2019, 8, 10, 10, 40);
-        Review review1 = new Review(date1, "This comic is awesome!", 3, comic1, user1);
-        reviewRepository.save(review1);
-
-        Date date2 = new Date(2019, 8, 11, 10, 05);
-        Review review2 = new Review(date2, "Seriously, read this comic!", 1, comic1, user1);
-        reviewRepository.save(review2);
-
-
-
 
         Persona persona2 = new Persona("Superman", "Clark Kent", "Superhuman", "Action Comics #1", "/images/Images/Persona/Juperman.jpg", "Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America's heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and the American way!");
         personaRepository.save(persona2);
