@@ -41,11 +41,12 @@ class MainContainer extends Component {
   componentDidMount(){
     const request = new Request()
 
-    const promise1 = request.get('/api/comics');
+    const promise1 = request.get('/api/comics?size=36');
     const promise2 = request.get('/api/personae');
     const promise3 = request.get('/api/publishers');
     const promise4 = request.get('/api/users');
     const promise5 = request.get('/api/reviews')
+
 
     const promises = [promise1, promise2, promise3, promise4, promise5];
 
