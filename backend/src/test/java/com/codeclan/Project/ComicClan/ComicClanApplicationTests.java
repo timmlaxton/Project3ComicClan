@@ -88,7 +88,7 @@ public class ComicClanApplicationTests {
 	}
 
 	@Test
-	public void canCalculateAvgAmount(){
+	public void  canCalculateAvgAmount(){
 		Publisher publisher1 = new Publisher("Marvel", "");
 		publisherRepository.save(publisher1);
 		User user1 = new User("Jordan", "Just Jordan");
